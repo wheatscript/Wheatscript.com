@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WheatScript Consulting</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -16,68 +19,58 @@
       overflow-x: hidden;
     }
 
-    /* HERO BAR ---------------------------------------------- */
+    /* Glowing underline link */
+    a {
+      position: relative;
+      color: #38bdf8;
+      text-decoration: none;
+      padding-bottom: 2px;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background: #38bdf8;
+      box-shadow: 0 0 8px #38bdf8;
+      transition: width 0.3s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
     .hero-bar {
       background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
-      padding: 70px 20px 60px;
+      padding: 90px 20px 70px;
       text-align: center;
       border-bottom: 1px solid #1e293b;
       opacity: 0;
-      transform: translateY(20px) scale(0.98);
+      transform: translateY(20px) scale(0.97);
       animation: heroEnter 1.2s ease-out forwards;
     }
 
     .hero-logo img {
-      height: 130px;
+      height: 185px;
       width: auto;
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.88);
       animation: logoEnter 1s ease-out forwards;
       animation-delay: 0.2s;
     }
 
-    .hero-title {
-      font-size: 48px;
-      margin: 18px 0 0;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: titleEnter 1s ease-out forwards;
-      animation-delay: 0.35s;
-    }
-
-    .hero-tagline {
-      font-size: 20px;
-      color: #cbd5e1;
-      margin-top: 12px;
-      opacity: 0;
-      animation: taglineEnter 1s ease-out forwards;
-      animation-delay: 0.55s;
-    }
-
-    /* KEYFRAMES ---------------------------------------------- */
-
     @keyframes heroEnter {
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
-
     @keyframes logoEnter {
       to { opacity: 1; transform: scale(1); }
     }
 
-    @keyframes titleEnter {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes taglineEnter {
-      to { opacity: 1; }
-    }
-
-    @keyframes sectionReveal {
-      0% { opacity: 0; transform: translateY(35px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* SECTION + CONTAINER ------------------------------------- */
+    /* CONTENT */
     .container {
       max-width: 900px;
       margin: 40px auto;
@@ -87,11 +80,16 @@
     section {
       margin-bottom: 60px;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(35px);
     }
 
     section.revealed {
       animation: sectionReveal 0.9s ease-out forwards;
+    }
+
+    @keyframes sectionReveal {
+      0% { opacity: 0; transform: translateY(35px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
@@ -100,17 +98,23 @@
       letter-spacing: 0.05em;
       border-bottom: 1px solid #334155;
       padding-bottom: 8px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    p, li {
-      font-size: 17px;
+    .icon {
+      height: 20px;
+      width: 20px;
+      stroke: #38bdf8;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
+    /* Pills */
     .pill-row {
       margin-top: 15px;
     }
@@ -126,12 +130,13 @@
       letter-spacing: 0.07em;
     }
 
+    /* Highlight box */
     .highlight {
       background: rgba(56, 189, 248, 0.15);
       border-left: 3px solid #38bdf8;
       padding: 14px;
       border-radius: 4px;
-      margin-top: 14px;
+      margin-top: 18px;
     }
 
     footer {
@@ -146,24 +151,24 @@
 
 <body>
 
-  <!-- HERO BAR ------------------------------------------------------>
+  <!-- HERO -->
   <div class="hero-bar">
     <div class="hero-logo">
       <img src="A28C87F9-B3BC-46D2-9577-8C8A8143C94E.png" alt="WheatScript Logo">
     </div>
-    <h1 class="hero-title">WheatScript</h1>
-    <div class="hero-tagline">
-      Operations, communications, systems and clinical workflow consulting.
-    </div>
   </div>
 
-  <!-- MAIN CONTENT --------------------------------------------------->
+  <!-- MAIN CONTENT -->
   <div class="container">
 
+    <!-- ABOUT -->
     <section>
-      <h2>About Me</h2>
-      <p>I am a multidisciplinary operations and communications consultant with experience in healthcare leadership, systems design, clinical workflows and customer-facing service.</p>
-      <p>I specialize in identifying operational inefficiencies, modernizing outdated structures and building processes that reduce friction for teams and clients. My work blends systems thinking, human-centered communication, technical problem-solving and steady leadership.</p>
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/></svg>
+        About Billy
+      </h2>
+
+      <p>I am a multidisciplinary operations and communications consultant with experience in healthcare leadership, systems design, clinical workflows and client-facing work. I specialize in simplifying complexity and building processes that reduce friction for teams and customers.</p>
 
       <div class="pill-row">
         <span class="pill">Operations</span>
@@ -173,88 +178,79 @@
       </div>
     </section>
 
+    <!-- WHAT I DO -->
     <section>
-      <h2>What I Do</h2>
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        What I Do
+      </h2>
 
       <p><strong>Operations efficiency consulting</strong></p>
       <ul>
-        <li>Evaluate workflows and identify bottlenecks.</li>
-        <li>Redesign staff processes and responsibilities.</li>
-        <li>Improve turnaround times and reliability.</li>
-        <li>Create cost-saving automations.</li>
-        <li>Develop SOPs and operational documentation.</li>
+        <li>Workflow evaluation and bottleneck identification.</li>
+        <li>Process redesign and operational cleanup.</li>
+        <li>Turnaround time improvement.</li>
+        <li>Automations and technology integration.</li>
+        <li>Systems documentation and SOP development.</li>
       </ul>
 
-      <p><strong>Communication strategy consulting</strong></p>
+      <p><strong>Communications strategy consulting</strong></p>
       <ul>
-        <li>Build clear internal communication structures.</li>
-        <li>Design patient or client communication systems.</li>
-        <li>Support interviewing and candidate evaluation.</li>
-        <li>Develop training and onboarding programs.</li>
-        <li>Reduce conflict through structured communication.</li>
+        <li>Internal communication systems.</li>
+        <li>Client/patient experience design.</li>
+        <li>Interviewing and structured evaluation.</li>
+        <li>Clarity-driven conflict reduction.</li>
       </ul>
 
-      <p><strong>Systems and automation consulting</strong></p>
+      <p><strong>Systems consulting & automation</strong></p>
       <ul>
-        <li>Design CRM and EMR workflow automations.</li>
-        <li>Map and document processes end to end.</li>
-        <li>Build knowledge bases and documentation.</li>
-        <li>Clean and structure data for reliability.</li>
-        <li>Integrate tools to reduce manual work.</li>
+        <li>CRM/EMR workflow automations.</li>
+        <li>Data structuring and reliability improvements.</li>
+        <li>Knowledge base creation.</li>
+        <li>Integration of tools to reduce manual tasks.</li>
       </ul>
 
       <p><strong>Clinical operations consulting</strong></p>
       <ul>
-        <li>Redesign clinic workflows.</li>
-        <li>Improve provider and staff communication systems.</li>
-        <li>Optimize patient experience and flow.</li>
-        <li>Update processes with compliance in mind.</li>
-        <li>Streamline intake, scheduling and triage.</li>
+        <li>Patient flow redesign.</li>
+        <li>Provider communication systems.</li>
+        <li>Triage, scheduling and intake optimization.</li>
+        <li>Compliance-focused workflow structure.</li>
       </ul>
     </section>
 
+    <!-- WHO I WORK WITH -->
     <section>
-      <h2>Who I Work With</h2>
-      <p>I support organizations that need thoughtful, systems-minded help without a full-time hire.</p>
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m16-11a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/></svg>
+        Who I Work With
+      </h2>
+
+      <p>I support organizations that need thoughtful, systems-minded help without the need for a full-time hire.</p>
 
       <ul>
         <li>Healthcare organizations and clinics.</li>
-        <li>Senior living groups.</li>
-        <li>Startups and small businesses.</li>
-        <li>Universities and admissions offices.</li>
-        <li>Nonprofits and mission-driven teams.</li>
+        <li>Senior living organizations.</li>
+        <li>Startups and small companies.</li>
+        <li>University and admissions teams.</li>
+        <li>Mission-driven nonprofits.</li>
       </ul>
 
       <div class="highlight">
-        I am available for part-time, project-based and fractional engagements.
+        Available for part-time, project-based and fractional engagements.
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section>
-      <h2>How to Work With Me</h2>
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/></svg>
+        Contact
+      </h2>
 
-      <p><strong>Engagement options</strong></p>
-      <ul>
-        <li>Hourly consulting</li>
-        <li>Project-based contracts</li>
-        <li>Fractional operations support (5–15 hours a week)</li>
-        <li>Interviewing and structured evaluation services</li>
-      </ul>
-
-      <p><strong>Typical requests</strong></p>
-      <ul>
-        <li>“Can you fix our workflow?”</li>
-        <li>“We need clearer communication systems.”</li>
-        <li>“Can you help us automate repetitive tasks?”</li>
-        <li>“We want to improve patient or client experience.”</li>
-        <li>“Can you help us interview and evaluate applicants?”</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
       <p>
-        <strong>Email:</strong> <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
+        <strong>Email:</strong>
+        <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
         <strong>Phone:</strong> (816) 237-8631<br>
         <strong>Location:</strong> Kansas City, Mo. — Open to remote consulting
       </p>
@@ -269,10 +265,9 @@
     </script>
   </footer>
 
-  <!-- SECTION REVEAL SCRIPT -->
+  <!-- SCROLL REVEAL SCRIPT -->
   <script>
     const sections = document.querySelectorAll("section");
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
