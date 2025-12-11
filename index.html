@@ -1,368 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WheatScript Consulting</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WheatScript Consulting</title>
 
-  <link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0f172a;
+    color: #e5e7eb;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-    /* Glowing underline links */
-    a {
-      position: relative;
-      color: #38bdf8;
-      text-decoration: none;
-      padding-bottom: 2px;
-    }
-    a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0%;
-      height: 2px;
-      background: #38bdf8;
-      box-shadow: 0 0 8px #38bdf8;
-      transition: width 0.3s ease;
-    }
-    a:hover::after { width: 100%; }
+  /* Glowing underline links */
+  a {
+    position: relative;
+    color: #38bdf8;
+    text-decoration: none;
+    padding-bottom: 2px;
+  }
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+    transition: width 0.3s ease;
+  }
+  a:hover::after { width: 100%; }
 
-    /* HERO */
-    .hero-bar {
-      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
-      padding: 35px 20px 35px;
-      text-align: center;
-      border-bottom: 1px solid #1e293b;
-      opacity: 0;
-      transform: translateY(15px) scale(0.97);
-      animation: heroEnter 1s ease-out forwards;
-    }
+  /* HEADER WITH SHRINK EFFECT */
+  .hero-bar {
+    background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+    padding: 25px 20px 25px;
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: padding 0.3s ease;
+  }
 
-    .hero-logo img {
-      height: 240px;
-      width: auto;
-      opacity: 0;
-      transform: scale(0.88);
-      animation: logoEnter 0.9s ease-out forwards;
-      animation-delay: 0.15s;
-    }
+  .hero-logo img {
+    height: 200px; /* Large at top */
+    width: auto;
+    transition: height 0.3s ease, transform 0.3s ease;
+  }
 
-    @keyframes heroEnter { to { opacity: 1; transform: translateY(0) scale(1);} }
-    @keyframes logoEnter { to { opacity: 1; transform: scale(1);} }
+  /* Shrink state */
+  .hero-bar.shrink { padding: 8px 20px 8px; }
+  .hero-bar.shrink .hero-logo img {
+    height: 75px; /* Smaller when scrolling */
+    transform: translateY(-5px);
+  }
 
-    /* CONTENT */
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
+  /* CONTENT */
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+  }
 
-    section {
-      margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(35px);
-    }
-    section.revealed { animation: reveal 0.9s ease-out forwards; }
+  section {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  section.revealed { animation: reveal 0.9s ease-out forwards; }
 
-    @keyframes reveal {
-      0% { opacity: 0; transform: translateY(35px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+  @keyframes reveal {
+    0% { opacity: 0; transform: translateY(35px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 
-    h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 1px solid #334155;
-      padding-bottom: 8px;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-    .icon {
-      height: 20px;
-      width: 20px;
-      stroke: #38bdf8;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-    }
+  .icon {
+    height: 20px;
+    width: 20px;
+    stroke: #38bdf8;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
 
-    /* Pills */
-    .pill {
-      display: inline-block;
-      padding: 7px 12px;
-      margin: 4px 6px 0 0;
-      border-radius: 999px;
-      background: #1e293b;
-      border: 1px solid #475569;
-      font-size: 13px;
-      letter-spacing: 0.07em;
-    }
+  /* Pills */
+  .pill {
+    display: inline-block;
+    padding: 7px 12px;
+    margin: 4px;
+    border-radius: 999px;
+    background: #1e293b;
+    border: 1px solid #475569;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+  }
 
-    .pill-row { margin-top: 15px; }
+  /* Accordion */
+  .accordion {
+    margin: 12px 0;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #1e2538;
+  }
 
-    /* Highlight */
-    .highlight {
-      background: rgba(56, 189, 248, 0.15);
-      border-left: 3px solid #38bdf8;
-      padding: 14px;
-      border-radius: 4px;
-      margin-top: 18px;
-    }
+  .accordion-header {
+    padding: 14px;
+    cursor: pointer;
+    font-size: 18px;
+    background: #1e293b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordion-header:hover { background: #243044; }
 
-    /* ACCORDION */
-    .accordion {
-      margin: 10px 0;
-      border: 1px solid #334155;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #1e2538;
-    }
+  .chevron {
+    stroke: #38bdf8;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+  }
 
-    .accordion-header {
-      padding: 14px;
-      cursor: pointer;
-      font-size: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #1e293b;
-      border-bottom: 1px solid #334155;
-    }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #1c2433;
+    padding: 0 14px;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
 
-    .accordion-header:hover {
-      background: #243044;
-    }
+  .accordion.open .accordion-content {
+    padding: 14px;
+  }
+  .accordion.open .chevron {
+    transform: rotate(180deg);
+  }
 
-    .chevron {
-      stroke: #38bdf8;
-      width: 18px;
-      height: 18px;
-      transition: transform 0.3s ease;
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      background: #1c2433;
-      padding: 0 14px;
-      transition: max-height 0.35s ease;
-    }
-
-    .accordion-content.open {
-      padding: 14px;
-    }
-
-    .accordion.open .chevron {
-      transform: rotate(180deg);
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      margin-top: 60px;
-      font-size: 14px;
-      color: #94a3b8;
-    }
-  </style>
+  footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 60px;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <div class="hero-bar">
-    <div class="hero-logo">
-      <img src="A28C87F9-B3BC-46D2-9577-8C8A8143C94E.png" alt="WheatScript Logo">
+<!-- HERO -->
+<div class="hero-bar" id="heroBar">
+  <div class="hero-logo">
+    <img src="A28C87F9-B3BC-46D2-9577-8C8A8143C94E.png" alt="WheatScript Logo">
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- ABOUT -->
+  <section>
+    <h2>
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/></svg>
+      About Billy
+    </h2>
+
+    <p>I am a multidisciplinary operations and communications consultant experienced in healthcare leadership, systems design, clinical workflows and client-facing service.</p>
+
+    <div class="pill-row">
+      <span class="pill">Operations</span>
+      <span class="pill">Communications</span>
+      <span class="pill">Systems</span>
+      <span class="pill">Clinical Ops</span>
     </div>
-  </div>
+  </section>
 
-  <!-- CONTENT -->
-  <div class="container">
+  <!-- WHAT I DO -->
+  <section>
+    <h2>
+      <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      What I Do
+    </h2>
 
-    <!-- ABOUT -->
-    <section>
-      <h2>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/></svg>
-        About Billy
-      </h2>
-
-      <p>I am a multidisciplinary operations and communications consultant with experience in healthcare leadership, systems design, clinical workflows and client-facing service. I specialize in simplifying complexity and building processes that reduce friction.</p>
-
-      <div class="pill-row">
-        <span class="pill">Operations</span>
-        <span class="pill">Communications</span>
-        <span class="pill">Systems</span>
-        <span class="pill">Clinical Ops</span>
+    <!-- Accordions -->
+    <div class="accordion">
+      <div class="accordion-header">
+        Operations Efficiency
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
-    </section>
-
-    <!-- WHAT I DO -->
-    <section>
-      <h2>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        What I Do
-      </h2>
-
-      <!-- Accordion 1 -->
-      <div class="accordion">
-        <div class="accordion-header">
-          Operations Efficiency
-          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Workflow evaluation and bottleneck identification</li>
-            <li>Process redesign and operational cleanup</li>
-            <li>Turnaround time improvements</li>
-            <li>Technology and automation integration</li>
-          </ul>
-        </div>
+      <div class="accordion-content">
+        <ul>
+          <li>Workflow evaluation & bottleneck detection</li>
+          <li>Process redesign & cleanup</li>
+          <li>Turnaround time improvements</li>
+          <li>Automation & integrations</li>
+        </ul>
       </div>
+    </div>
 
-      <!-- Accordion 2 -->
-      <div class="accordion">
-        <div class="accordion-header">
-          Communications Strategy
-          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Internal communication frameworks</li>
-            <li>Client and patient experience flows</li>
-            <li>Interviewing and structured evaluations</li>
-            <li>Conflict reduction through clarity</li>
-          </ul>
-        </div>
+    <div class="accordion">
+      <div class="accordion-header">
+        Communications Strategy
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
-
-      <!-- Accordion 3 -->
-      <div class="accordion">
-        <div class="accordion-header">
-          Systems & Automation
-          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>CRM/EMR workflow automations</li>
-            <li>Process documentation and mapping</li>
-            <li>Knowledge base development</li>
-            <li>Reducing manual tasks through integration</li>
-          </ul>
-        </div>
+      <div class="accordion-content">
+        <ul>
+          <li>Communication frameworks</li>
+          <li>Client/patient experience design</li>
+          <li>Interviewing and evaluations</li>
+          <li>Conflict reduction through clarity</li>
+        </ul>
       </div>
+    </div>
 
-      <!-- Accordion 4 -->
-      <div class="accordion">
-        <div class="accordion-header">
-          Clinical Operations
-          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Patient flow redesign</li>
-            <li>Provider communication systems</li>
-            <li>Scheduling and intake optimization</li>
-            <li>Compliance-focused workflow structure</li>
-          </ul>
-        </div>
+    <div class="accordion">
+      <div class="accordion-header">
+        Systems & Automation
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
-    </section>
-
-    <!-- WHO I WORK WITH -->
-    <section>
-      <h2>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m16-11a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/></svg>
-        Who I Work With
-      </h2>
-
-      <p>I support organizations that need structured, systems-minded help without hiring full-time leadership.</p>
-
-      <ul>
-        <li>Healthcare organizations and clinics</li>
-        <li>Senior living groups</li>
-        <li>Startups and small companies</li>
-        <li>Universities and admissions teams</li>
-        <li>Mission-driven nonprofits</li>
-      </ul>
-
-      <div class="highlight">
-        Available for part-time, project-based and fractional engagements.
+      <div class="accordion-content">
+        <ul>
+          <li>CRM/EMR workflow automations</li>
+          <li>Process mapping & documentation</li>
+          <li>Knowledge base creation</li>
+          <li>Reducing manual workload</li>
+        </ul>
       </div>
-    </section>
+    </div>
 
-    <!-- CONTACT -->
-    <section>
-      <h2>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/></svg>
-        Contact
-      </h2>
+    <div class="accordion">
+      <div class="accordion-header">
+        Clinical Operations
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="accordion-content">
+        <ul>
+          <li>Patient flow redesign</li>
+          <li>Provider communication systems</li>
+          <li>Scheduling and intake optimization</li>
+          <li>Compliance-minded workflows</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-      <p>
-        <strong>Email:</strong>
-        <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
-        <strong>Phone:</strong> (816) 237-8631<br>
-        <strong>Location:</strong> Kansas City, Mo. — Open to remote consulting
-      </p>
-    </section>
+  <!-- WHO I WORK WITH -->
+  <section>
+    <h2>
+      <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m16-11a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/></svg>
+      Who I Work With
+    </h2>
 
-  </div>
+    <p>I collaborate with organizations that need structured, systems-minded help without hiring permanent leadership.</p>
 
-  <!-- FOOTER -->
-  <footer>
-    <script>document.write("© " + new Date().getFullYear() + " WheatScript Consulting");</script>
-  </footer>
+    <ul>
+      <li>Healthcare groups</li>
+      <li>Senior living organizations</li>
+      <li>Startups & small businesses</li>
+      <li>Universities & admissions teams</li>
+      <li>Mission-driven nonprofits</li>
+    </ul>
 
-  <!-- REVEAL & ACCORDION SCRIPT -->
-  <script>
-    /* reveal animation */
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-        }
-      });
-    }, { threshold: 0.1 });
-    sections.forEach(section => observer.observe(section));
+    <div class="highlight">
+      Available for part-time, project-based and fractional engagements.
+    </div>
+  </section>
 
-    /* accordion logic */
-    const accordions = document.querySelectorAll(".accordion");
+  <!-- CONTACT -->
+  <section>
+    <h2>
+      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/></svg>
+      Contact
+    </h2>
 
-    accordions.forEach(acc => {
-      const header = acc.querySelector(".accordion-header");
-      const content = acc.querySelector(".accordion-content");
+    <p>
+      <strong>Email:</strong>
+      <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
+      <strong>Phone:</strong> (816) 237-8631<br>
+      <strong>Location:</strong> Kansas City, Mo. — Open to remote consulting
+    </p>
+  </section>
 
-      header.addEventListener("click", () => {
-        const isOpen = acc.classList.contains("open");
-        document.querySelectorAll(".accordion.open").forEach(a => {
-          a.classList.remove("open");
-          a.querySelector(".accordion-content").style.maxHeight = null;
-          a.querySelector(".accordion-content").classList.remove("open");
-        });
+</div>
 
-        if (!isOpen) {
-          acc.classList.add("open");
-          content.classList.add("open");
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
+<!-- FOOTER -->
+<footer>
+  <script>document.write("© " + new Date().getFullYear() + " WheatScript Consulting");</script>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  /* reveal animation */
+  const sections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+      }
     });
-  </script>
+  }, { threshold: 0.1 });
+  sections.forEach(section => observer.observe(section));
+
+  /* accordion */
+  const accordions = document.querySelectorAll(".accordion");
+  accordions.forEach(acc => {
+    const header = acc.querySelector(".accordion-header");
+    const content = acc.querySelector(".accordion-content");
+
+    header.addEventListener("click", () => {
+      const isOpen = acc.classList.contains("open");
+      document.querySelectorAll(".accordion.open").forEach(a => {
+        a.classList.remove("open");
+        a.querySelector(".accordion-content").style.maxHeight = null;
+      });
+      if (!isOpen) {
+        acc.classList.add("open");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+
+  /* shrink header on scroll */
+  const heroBar = document.getElementById("heroBar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      heroBar.classList.add("shrink");
+    } else {
+      heroBar.classList.remove("shrink");
+    }
+  });
+</script>
 
 </body>
 </html>
