@@ -3,41 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Billy Holdeman-Bass Consulting</title>
+  <title>WheatScript Consulting</title>
+
   <style>
-    body {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;margin: 0;padding: 0;background: #0f172a;color: #e5e7eb;line-height: 1.6;}
-    .container {max-width: 900px;margin: 60px auto;padding: 20px;background: rgba(15,23,42,0.6);border-radius: 16px;box-shadow: 0 0 40px rgba(0,0,0,0.4);backdrop-filter: blur(6px);}
-    .logo-header {display: flex;align-items: center;gap: 18px;margin-bottom: 30px;}
-    .logo-header img {height: 64px;width: 64px;object-fit: contain;border-radius: 8px;}
-    .kicker {text-transform: uppercase;font-size: 12px;letter-spacing: 0.15em;color: #38bdf8;font-weight: 600;}
-    h1 {font-size: 32px;margin: 0;padding: 0;}
-    .tagline {font-size: 16px;color: #94a3b8;margin-top: 4px;}
-    h2 {margin-top: 40px;font-size: 20px;border-bottom: 1px solid #334155;padding-bottom: 6px;text-transform: uppercase;letter-spacing: 0.05em;}
-    p {margin: 12px 0;font-size: 16px;}
-    ul {padding-left: 20px;}
-    li {margin: 6px 0;font-size: 15px;}
-    .pill-row {margin-top: 12px;}
-    .pill {display: inline-block;margin: 4px 6px 0 0;padding: 6px 10px;border-radius: 999px;font-size: 12px;border: 1px solid #475569;color: #cbd5e1;background: #1e293b;text-transform: uppercase;letter-spacing: 0.08em;}
-    .highlight {background: rgba(56, 189, 248, 0.15);padding: 12px;border-left: 3px solid #38bdf8;border-radius: 4px;margin-top: 12px;}
-    .contact {margin-top: 20px;font-size: 16px;}
-    a {color: #38bdf8;text-decoration: none;}
-    a:hover {text-decoration: underline;}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* HERO BAR ---------------------------------------------- */
+    .hero-bar {
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      border-bottom: 1px solid #1e293b;
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      animation: heroEnter 1.2s ease-out forwards;
+    }
+
+    .hero-logo img {
+      height: 130px;
+      width: auto;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: logoEnter 1s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      margin: 18px 0 0;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: titleEnter 1s ease-out forwards;
+      animation-delay: 0.35s;
+    }
+
+    .hero-tagline {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin-top: 12px;
+      opacity: 0;
+      animation: taglineEnter 1s ease-out forwards;
+      animation-delay: 0.55s;
+    }
+
+    /* KEYFRAMES ---------------------------------------------- */
+
+    @keyframes heroEnter {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes logoEnter {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes titleEnter {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes taglineEnter {
+      to { opacity: 1; }
+    }
+
+    @keyframes sectionReveal {
+      0% { opacity: 0; transform: translateY(35px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION + CONTAINER ------------------------------------- */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    section.revealed {
+      animation: sectionReveal 0.9s ease-out forwards;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    p, li {
+      font-size: 17px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .pill-row {
+      margin-top: 15px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 12px;
+      margin: 4px 6px 0 0;
+      border-radius: 999px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      font-size: 13px;
+      letter-spacing: 0.07em;
+    }
+
+    .highlight {
+      background: rgba(56, 189, 248, 0.15);
+      border-left: 3px solid #38bdf8;
+      padding: 14px;
+      border-radius: 4px;
+      margin-top: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="logo-header">
-      <img src="A28C87F9-B3BC-46D2-9577-8C8A8143C94E.png" alt="Logo" />
-      <div>
-        <div class="kicker">Consulting</div>
-        <h1>Billy Holdeman-Bass</h1>
-        <div class="tagline">Operations, communications, systems and clinical workflow consulting.</div>
-      </div>
+
+  <!-- HERO BAR ------------------------------------------------------>
+  <div class="hero-bar">
+    <div class="hero-logo">
+      <img src="A28C87F9-B3BC-46D2-9577-8C8A8143C94E.png" alt="WheatScript Logo">
     </div>
+    <h1 class="hero-title">WheatScript</h1>
+    <div class="hero-tagline">
+      Operations, communications, systems and clinical workflow consulting.
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT --------------------------------------------------->
+  <div class="container">
+
     <section>
       <h2>About Me</h2>
       <p>I am a multidisciplinary operations and communications consultant with experience in healthcare leadership, systems design, clinical workflows and customer-facing service.</p>
       <p>I specialize in identifying operational inefficiencies, modernizing outdated structures and building processes that reduce friction for teams and clients. My work blends systems thinking, human-centered communication, technical problem-solving and steady leadership.</p>
+
       <div class="pill-row">
         <span class="pill">Operations</span>
         <span class="pill">Communications</span>
@@ -45,8 +172,10 @@
         <span class="pill">Clinical Ops</span>
       </div>
     </section>
+
     <section>
       <h2>What I Do</h2>
+
       <p><strong>Operations efficiency consulting</strong></p>
       <ul>
         <li>Evaluate workflows and identify bottlenecks.</li>
@@ -55,6 +184,7 @@
         <li>Create cost-saving automations.</li>
         <li>Develop SOPs and operational documentation.</li>
       </ul>
+
       <p><strong>Communication strategy consulting</strong></p>
       <ul>
         <li>Build clear internal communication structures.</li>
@@ -63,6 +193,7 @@
         <li>Develop training and onboarding programs.</li>
         <li>Reduce conflict through structured communication.</li>
       </ul>
+
       <p><strong>Systems and automation consulting</strong></p>
       <ul>
         <li>Design CRM and EMR workflow automations.</li>
@@ -71,6 +202,7 @@
         <li>Clean and structure data for reliability.</li>
         <li>Integrate tools to reduce manual work.</li>
       </ul>
+
       <p><strong>Clinical operations consulting</strong></p>
       <ul>
         <li>Redesign clinic workflows.</li>
@@ -80,9 +212,11 @@
         <li>Streamline intake, scheduling and triage.</li>
       </ul>
     </section>
+
     <section>
       <h2>Who I Work With</h2>
       <p>I support organizations that need thoughtful, systems-minded help without a full-time hire.</p>
+
       <ul>
         <li>Healthcare organizations and clinics.</li>
         <li>Senior living groups.</li>
@@ -90,17 +224,23 @@
         <li>Universities and admissions offices.</li>
         <li>Nonprofits and mission-driven teams.</li>
       </ul>
-      <div class="highlight">I am available for part-time, project-based and fractional engagements.</div>
+
+      <div class="highlight">
+        I am available for part-time, project-based and fractional engagements.
+      </div>
     </section>
+
     <section>
       <h2>How to Work With Me</h2>
+
       <p><strong>Engagement options</strong></p>
       <ul>
-        <li>Hourly consulting.</li>
-        <li>Project-based contracts.</li>
-        <li>Fractional operations support (5–15 hours a week).</li>
-        <li>Interviewing and structured evaluation services.</li>
+        <li>Hourly consulting</li>
+        <li>Project-based contracts</li>
+        <li>Fractional operations support (5–15 hours a week)</li>
+        <li>Interviewing and structured evaluation services</li>
       </ul>
+
       <p><strong>Typical requests</strong></p>
       <ul>
         <li>“Can you fix our workflow?”</li>
@@ -110,14 +250,39 @@
         <li>“Can you help us interview and evaluate applicants?”</li>
       </ul>
     </section>
+
     <section>
       <h2>Contact</h2>
-      <p class="contact">
-        <strong>Email:</strong> <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br />
-        <strong>Phone:</strong> <a href="tel:+18162378631">(816) 237-8631</a><br />
+      <p>
+        <strong>Email:</strong> <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
+        <strong>Phone:</strong> (816) 237-8631<br>
         <strong>Location:</strong> Kansas City, Mo. — Open to remote consulting
       </p>
     </section>
+
   </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <script>
+      document.write("(c) " + new Date().getFullYear() + " WheatScript Consulting");
+    </script>
+  </footer>
+
+  <!-- SECTION REVEAL SCRIPT -->
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
 </body>
 </html>
