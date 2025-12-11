@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WheatScript Consulting</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
@@ -19,14 +18,13 @@
       overflow-x: hidden;
     }
 
-    /* Glowing underline link */
+    /* Glowing underline links */
     a {
       position: relative;
       color: #38bdf8;
       text-decoration: none;
       padding-bottom: 2px;
     }
-
     a::after {
       content: "";
       position: absolute;
@@ -38,37 +36,30 @@
       box-shadow: 0 0 8px #38bdf8;
       transition: width 0.3s ease;
     }
-
-    a:hover::after {
-      width: 100%;
-    }
+    a:hover::after { width: 100%; }
 
     /* HERO */
     .hero-bar {
       background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
-      padding: 90px 20px 70px;
+      padding: 35px 20px 35px;
       text-align: center;
       border-bottom: 1px solid #1e293b;
       opacity: 0;
-      transform: translateY(20px) scale(0.97);
-      animation: heroEnter 1.2s ease-out forwards;
+      transform: translateY(15px) scale(0.97);
+      animation: heroEnter 1s ease-out forwards;
     }
 
     .hero-logo img {
-      height: 185px;
+      height: 240px;
       width: auto;
       opacity: 0;
       transform: scale(0.88);
-      animation: logoEnter 1s ease-out forwards;
-      animation-delay: 0.2s;
+      animation: logoEnter 0.9s ease-out forwards;
+      animation-delay: 0.15s;
     }
 
-    @keyframes heroEnter {
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @keyframes logoEnter {
-      to { opacity: 1; transform: scale(1); }
-    }
+    @keyframes heroEnter { to { opacity: 1; transform: translateY(0) scale(1);} }
+    @keyframes logoEnter { to { opacity: 1; transform: scale(1);} }
 
     /* CONTENT */
     .container {
@@ -82,12 +73,9 @@
       opacity: 0;
       transform: translateY(35px);
     }
+    section.revealed { animation: reveal 0.9s ease-out forwards; }
 
-    section.revealed {
-      animation: sectionReveal 0.9s ease-out forwards;
-    }
-
-    @keyframes sectionReveal {
+    @keyframes reveal {
       0% { opacity: 0; transform: translateY(35px); }
       100% { opacity: 1; transform: translateY(0); }
     }
@@ -115,10 +103,6 @@
     }
 
     /* Pills */
-    .pill-row {
-      margin-top: 15px;
-    }
-
     .pill {
       display: inline-block;
       padding: 7px 12px;
@@ -130,13 +114,62 @@
       letter-spacing: 0.07em;
     }
 
-    /* Highlight box */
+    .pill-row { margin-top: 15px; }
+
+    /* Highlight */
     .highlight {
       background: rgba(56, 189, 248, 0.15);
       border-left: 3px solid #38bdf8;
       padding: 14px;
       border-radius: 4px;
       margin-top: 18px;
+    }
+
+    /* ACCORDION */
+    .accordion {
+      margin: 10px 0;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #1e2538;
+    }
+
+    .accordion-header {
+      padding: 14px;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      border-bottom: 1px solid #334155;
+    }
+
+    .accordion-header:hover {
+      background: #243044;
+    }
+
+    .chevron {
+      stroke: #38bdf8;
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #1c2433;
+      padding: 0 14px;
+      transition: max-height 0.35s ease;
+    }
+
+    .accordion-content.open {
+      padding: 14px;
+    }
+
+    .accordion.open .chevron {
+      transform: rotate(180deg);
     }
 
     footer {
@@ -158,7 +191,7 @@
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTENT -->
   <div class="container">
 
     <!-- ABOUT -->
@@ -168,7 +201,7 @@
         About Billy
       </h2>
 
-      <p>I am a multidisciplinary operations and communications consultant with experience in healthcare leadership, systems design, clinical workflows and client-facing work. I specialize in simplifying complexity and building processes that reduce friction for teams and customers.</p>
+      <p>I am a multidisciplinary operations and communications consultant with experience in healthcare leadership, systems design, clinical workflows and client-facing service. I specialize in simplifying complexity and building processes that reduce friction.</p>
 
       <div class="pill-row">
         <span class="pill">Operations</span>
@@ -185,38 +218,69 @@
         What I Do
       </h2>
 
-      <p><strong>Operations efficiency consulting</strong></p>
-      <ul>
-        <li>Workflow evaluation and bottleneck identification.</li>
-        <li>Process redesign and operational cleanup.</li>
-        <li>Turnaround time improvement.</li>
-        <li>Automations and technology integration.</li>
-        <li>Systems documentation and SOP development.</li>
-      </ul>
+      <!-- Accordion 1 -->
+      <div class="accordion">
+        <div class="accordion-header">
+          Operations Efficiency
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Workflow evaluation and bottleneck identification</li>
+            <li>Process redesign and operational cleanup</li>
+            <li>Turnaround time improvements</li>
+            <li>Technology and automation integration</li>
+          </ul>
+        </div>
+      </div>
 
-      <p><strong>Communications strategy consulting</strong></p>
-      <ul>
-        <li>Internal communication systems.</li>
-        <li>Client/patient experience design.</li>
-        <li>Interviewing and structured evaluation.</li>
-        <li>Clarity-driven conflict reduction.</li>
-      </ul>
+      <!-- Accordion 2 -->
+      <div class="accordion">
+        <div class="accordion-header">
+          Communications Strategy
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Internal communication frameworks</li>
+            <li>Client and patient experience flows</li>
+            <li>Interviewing and structured evaluations</li>
+            <li>Conflict reduction through clarity</li>
+          </ul>
+        </div>
+      </div>
 
-      <p><strong>Systems consulting & automation</strong></p>
-      <ul>
-        <li>CRM/EMR workflow automations.</li>
-        <li>Data structuring and reliability improvements.</li>
-        <li>Knowledge base creation.</li>
-        <li>Integration of tools to reduce manual tasks.</li>
-      </ul>
+      <!-- Accordion 3 -->
+      <div class="accordion">
+        <div class="accordion-header">
+          Systems & Automation
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>CRM/EMR workflow automations</li>
+            <li>Process documentation and mapping</li>
+            <li>Knowledge base development</li>
+            <li>Reducing manual tasks through integration</li>
+          </ul>
+        </div>
+      </div>
 
-      <p><strong>Clinical operations consulting</strong></p>
-      <ul>
-        <li>Patient flow redesign.</li>
-        <li>Provider communication systems.</li>
-        <li>Triage, scheduling and intake optimization.</li>
-        <li>Compliance-focused workflow structure.</li>
-      </ul>
+      <!-- Accordion 4 -->
+      <div class="accordion">
+        <div class="accordion-header">
+          Clinical Operations
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Patient flow redesign</li>
+            <li>Provider communication systems</li>
+            <li>Scheduling and intake optimization</li>
+            <li>Compliance-focused workflow structure</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- WHO I WORK WITH -->
@@ -226,14 +290,14 @@
         Who I Work With
       </h2>
 
-      <p>I support organizations that need thoughtful, systems-minded help without the need for a full-time hire.</p>
+      <p>I support organizations that need structured, systems-minded help without hiring full-time leadership.</p>
 
       <ul>
-        <li>Healthcare organizations and clinics.</li>
-        <li>Senior living organizations.</li>
-        <li>Startups and small companies.</li>
-        <li>University and admissions teams.</li>
-        <li>Mission-driven nonprofits.</li>
+        <li>Healthcare organizations and clinics</li>
+        <li>Senior living groups</li>
+        <li>Startups and small companies</li>
+        <li>Universities and admissions teams</li>
+        <li>Mission-driven nonprofits</li>
       </ul>
 
       <div class="highlight">
@@ -260,13 +324,12 @@
 
   <!-- FOOTER -->
   <footer>
-    <script>
-      document.write("(c) " + new Date().getFullYear() + " WheatScript Consulting");
-    </script>
+    <script>document.write("© " + new Date().getFullYear() + " WheatScript Consulting");</script>
   </footer>
 
-  <!-- SCROLL REVEAL SCRIPT -->
+  <!-- REVEAL & ACCORDION SCRIPT -->
   <script>
+    /* reveal animation */
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -275,8 +338,30 @@
         }
       });
     }, { threshold: 0.1 });
-
     sections.forEach(section => observer.observe(section));
+
+    /* accordion logic */
+    const accordions = document.querySelectorAll(".accordion");
+
+    accordions.forEach(acc => {
+      const header = acc.querySelector(".accordion-header");
+      const content = acc.querySelector(".accordion-content");
+
+      header.addEventListener("click", () => {
+        const isOpen = acc.classList.contains("open");
+        document.querySelectorAll(".accordion.open").forEach(a => {
+          a.classList.remove("open");
+          a.querySelector(".accordion-content").style.maxHeight = null;
+          a.querySelector(".accordion-content").classList.remove("open");
+        });
+
+        if (!isOpen) {
+          acc.classList.add("open");
+          content.classList.add("open");
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
   </script>
 
 </body>
