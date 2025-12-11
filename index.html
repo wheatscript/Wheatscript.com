@@ -38,29 +38,35 @@
   }
   a:hover::after { width: 100%; }
 
-  /* HEADER WITH SHRINK EFFECT */
+  /* NEW HEADER — large logo + shrink on scroll */
   .hero-bar {
-    background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
-    padding: 25px 20px 25px;
+    background: #0f172a;
+    padding: 10px 0;
     text-align: center;
-    border-bottom: 1px solid #1e293b;
     position: sticky;
     top: 0;
-    z-index: 50;
-    transition: padding 0.3s ease;
+    z-index: 100;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 0.3s ease, padding 0.3s ease;
+    border-bottom: 1px solid #1e293b;
   }
 
   .hero-logo img {
-    height: 200px; /* Large at top */
+    height: 160px;
     width: auto;
-    transition: height 0.3s ease, transform 0.3s ease;
+    transition: height 0.3s ease;
   }
 
-  /* Shrink state */
-  .hero-bar.shrink { padding: 8px 20px 8px; }
+  .hero-bar.shrink {
+    height: 80px;
+    padding: 0;
+  }
+
   .hero-bar.shrink .hero-logo img {
-    height: 75px; /* Smaller when scrolling */
-    transform: translateY(-5px);
+    height: 90px;
   }
 
   /* CONTENT */
@@ -75,7 +81,9 @@
     opacity: 0;
     transform: translateY(35px);
   }
-  section.revealed { animation: reveal 0.9s ease-out forwards; }
+  section.revealed {
+    animation: reveal 0.9s ease-out forwards;
+  }
 
   @keyframes reveal {
     0% { opacity: 0; transform: translateY(35px); }
@@ -115,6 +123,7 @@
     font-size: 13px;
     letter-spacing: 0.07em;
   }
+  .pill-row { margin-top: 15px; }
 
   /* Accordion */
   .accordion {
@@ -165,19 +174,20 @@
     font-size: 14px;
     color: #94a3b8;
   }
+
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<!-- HEADER WITH NEW SHRINK STYLE -->
 <div class="hero-bar" id="heroBar">
   <div class="hero-logo">
     <img src="A28C87F9-B3BC-46D2-9577-8C8A8143C94E.png" alt="WheatScript Logo">
   </div>
 </div>
 
-<!-- CONTENT -->
+<!-- MAIN CONTENT -->
 <div class="container">
 
   <!-- ABOUT -->
@@ -204,7 +214,7 @@
       What I Do
     </h2>
 
-    <!-- Accordions -->
+    <!-- Accordion 1 -->
     <div class="accordion">
       <div class="accordion-header">
         Operations Efficiency
@@ -220,6 +230,7 @@
       </div>
     </div>
 
+    <!-- Accordion 2 -->
     <div class="accordion">
       <div class="accordion-header">
         Communications Strategy
@@ -235,6 +246,7 @@
       </div>
     </div>
 
+    <!-- Accordion 3 -->
     <div class="accordion">
       <div class="accordion-header">
         Systems & Automation
@@ -250,6 +262,7 @@
       </div>
     </div>
 
+    <!-- Accordion 4 -->
     <div class="accordion">
       <div class="accordion-header">
         Clinical Operations
@@ -273,7 +286,7 @@
       Who I Work With
     </h2>
 
-    <p>I collaborate with organizations that need structured, systems-minded help without hiring permanent leadership.</p>
+    <p>I collaborate with organizations that need systems-minded support without requiring full-time leadership roles.</p>
 
     <ul>
       <li>Healthcare groups</li>
@@ -296,8 +309,7 @@
     </h2>
 
     <p>
-      <strong>Email:</strong>
-      <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
+      <strong>Email:</strong> <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
       <strong>Phone:</strong> (816) 237-8631<br>
       <strong>Location:</strong> Kansas City, Mo. — Open to remote consulting
     </p>
@@ -323,7 +335,7 @@
   }, { threshold: 0.1 });
   sections.forEach(section => observer.observe(section));
 
-  /* accordion */
+  /* accordion behavior */
   const accordions = document.querySelectorAll(".accordion");
   accordions.forEach(acc => {
     const header = acc.querySelector(".accordion-header");
@@ -331,10 +343,14 @@
 
     header.addEventListener("click", () => {
       const isOpen = acc.classList.contains("open");
+
+      /* close others */
       document.querySelectorAll(".accordion.open").forEach(a => {
         a.classList.remove("open");
         a.querySelector(".accordion-content").style.maxHeight = null;
       });
+
+      /* toggle this one */
       if (!isOpen) {
         acc.classList.add("open");
         content.style.maxHeight = content.scrollHeight + "px";
@@ -346,7 +362,7 @@
   const heroBar = document.getElementById("heroBar");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       heroBar.classList.add("shrink");
     } else {
       heroBar.classList.remove("shrink");
