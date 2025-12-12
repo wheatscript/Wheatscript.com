@@ -18,11 +18,14 @@
     overflow-x: hidden;
   }
 
-  /* Header with side spacing */
+  /* -------------------------------------------------------- */
+  /* HEADER (with fixed logo initialization behavior)         */
+  /* -------------------------------------------------------- */
+
   .hero-bar {
     background: #0f172a;
     height: 140px;
-    padding: 0 40px; /* <<< SIDE WHITE SPACE ADDED */
+    padding: 0 40px; /* spacing on sides */
     position: sticky;
     top: 0;
     z-index: 200;
@@ -34,26 +37,30 @@
   }
 
   .hero-logo img {
-    height: 140px;
+    height: 120px;      /* FIX: safe starting height */
+    max-height: 120px;  /* FIX: prevents overflow on load */
     width: auto;
     display: block;
     object-fit: contain;
     object-position: center;
     margin: 0;
     padding: 0;
-    transition: height 0.28s ease;
+    transition: height 0.28s ease, max-height 0.28s ease;
   }
 
   .hero-bar.shrink {
     height: 80px;
-    padding: 0 30px; /* slightly reduce side spacing when shrinking */
+    padding: 0 30px;
   }
 
   .hero-bar.shrink .hero-logo img {
-    height: 80px;
+    height: 70px;
+    max-height: 70px;
   }
 
-  /* Glowing links */
+  /* -------------------------------------------------------- */
+  /* GLOW LINKS */
+  /* -------------------------------------------------------- */
   a {
     position: relative;
     color: #38bdf8;
@@ -75,7 +82,10 @@
     width: 100%;
   }
 
-  /* Main container */
+  /* -------------------------------------------------------- */
+  /* CONTENT */
+  /* -------------------------------------------------------- */
+
   .container {
     max-width: 900px;
     margin: 40px auto;
@@ -119,6 +129,10 @@
     fill: none;
   }
 
+  /* -------------------------------------------------------- */
+  /* PILLS */
+  /* -------------------------------------------------------- */
+
   .pill {
     display: inline-block;
     padding: 7px 12px;
@@ -133,6 +147,10 @@
   .pill-row {
     margin-top: 15px;
   }
+
+  /* -------------------------------------------------------- */
+  /* ACCORDIONS */
+  /* -------------------------------------------------------- */
 
   .accordion {
     margin: 12px 0;
@@ -151,6 +169,7 @@
     justify-content: space-between;
     align-items: center;
   }
+
   .accordion-header:hover {
     background: #243044;
   }
@@ -173,6 +192,7 @@
   .accordion.open .accordion-content {
     padding: 14px;
   }
+
   .accordion.open .chevron {
     transform: rotate(180deg);
   }
@@ -189,7 +209,9 @@
 
 <body>
 
-<!-- HEADER -->
+<!-- -------------------------------------------------------- -->
+<!-- HEADER WITH FIXED LOGO BEHAVIOR -->
+<!-- -------------------------------------------------------- -->
 <div class="hero-bar" id="heroBar">
   <div class="hero-logo">
     <img src="IMG_0992.png" alt="WheatScript Logo" />
@@ -198,6 +220,7 @@
 
 <div class="container">
 
+  <!-- ABOUT -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
@@ -207,7 +230,9 @@
     </h2>
 
     <p>
-      I am a multidisciplinary operations and communications consultant experienced in healthcare leadership, systems design, clinical workflows and client-facing service.
+      I am a multidisciplinary operations and communications consultant experienced
+      in healthcare leadership, systems design, clinical workflows and client-facing
+      service.
     </p>
 
     <div class="pill-row">
@@ -218,10 +243,11 @@
     </div>
   </section>
 
+  <!-- WHAT I DO -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
+        <path d="M4 6h16M4 12h16M4 18h16" />
       </svg>
       What I Do
     </h2>
@@ -235,7 +261,7 @@
         <ul>
           <li>Workflow evaluation and bottleneck detection</li>
           <li>Process redesign and cleanup</li>
-          <li>Turnaround improvements</li>
+          <li>Turnaround time improvements</li>
           <li>Automation and integrations</li>
         </ul>
       </div>
@@ -249,9 +275,9 @@
       <div class="accordion-content">
         <ul>
           <li>Communication frameworks</li>
-          <li>Experience design</li>
+          <li>Client and patient experience design</li>
           <li>Interviewing and evaluations</li>
-          <li>Conflict reduction systems</li>
+          <li>Clarity-driven conflict reduction</li>
         </ul>
       </div>
     </div>
@@ -263,9 +289,9 @@
       </div>
       <div class="accordion-content">
         <ul>
-          <li>CRM and EMR automations</li>
-          <li>Process mapping</li>
-          <li>Knowledge base design</li>
+          <li>CRM and EMR workflow automations</li>
+          <li>Process mapping and documentation</li>
+          <li>Knowledge base creation</li>
           <li>Reducing manual workload</li>
         </ul>
       </div>
@@ -281,13 +307,13 @@
           <li>Patient flow redesign</li>
           <li>Provider communication systems</li>
           <li>Scheduling optimization</li>
-          <li>Compliance-centered workflow structuring</li>
+          <li>Compliance-centered workflows</li>
         </ul>
       </div>
     </div>
-
   </section>
 
+  <!-- CONTACT -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
@@ -314,17 +340,16 @@
 </footer>
 
 <script>
-  // Reveal on scroll
+  /* Reveal on scroll */
   const sections = document.querySelectorAll("section");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add("revealed");
-    });
+    })
   }, { threshold: 0.1 });
-
   sections.forEach(section => observer.observe(section));
 
-  // Accordion
+  /* Accordion behavior */
   const accordions = document.querySelectorAll(".accordion");
   accordions.forEach(acc => {
     const header = acc.querySelector(".accordion-header");
@@ -345,7 +370,7 @@
     });
   });
 
-  // Shrinking header
+  /* Shrinking header behavior */
   const heroBar = document.getElementById("heroBar");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 30) {
