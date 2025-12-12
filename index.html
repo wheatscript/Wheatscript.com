@@ -6,7 +6,6 @@
 
   <title>WheatScript Consulting | Operations, Communications & Systems</title>
 
-  <!-- SEO -->
   <meta name="description" content="WheatScript Consulting helps teams streamline operations, improve communication, and design human-centered systems. Based in Kansas City, Mo., serving organizations nationwide." />
   <meta name="keywords" content="operations consultant, workflow design, communications strategy, systems optimization, automation consulting, Kansas City consultant" />
   <meta name="author" content="Billy Holdeman-Bass" />
@@ -18,275 +17,61 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wheatscript.com" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "WheatScript Consulting",
-    "image": "Billy-Portrait.png.PNG",
-    "description": "Operations, communications, and systems consulting focused on clarity, workflow improvement, and human-centered process design.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kansas City",
-      "addressRegion": "MO",
-      "addressCountry": "US"
-    },
-    "url": "https://wheatscript.com",
-    "telephone": "+18162378631"
-  }
-  </script>
 
   <style>
     :root {
-      --accent: #38bdf8;
-      --radius-lg: 18px;
-      --radius-pill: 999px;
-      --transition-base: 0.28s ease;
-    }
-
-    /* THEME VARIABLES */
-
-    body.theme-dark {
-      --bg-body: #0f172a;
-      --bg-surface: #0b1220;
-      --bg-surface-soft: #111827;
-      --border-color: #1f2937;
-      --border-subtle: #334155;
-      --text-main: #e5e7eb;
-      --text-soft: #cbd5e1;
-      --shadow-strong: 0 24px 60px rgba(15,23,42,0.95);
-      --shadow-soft: 0 10px 30px rgba(15,23,42,0.7);
-      --hero-glow: rgba(56,189,248,0.16);
-      --intro-border: rgba(56,189,248,0.35);
-      --footer-bg: #020617;
-    }
-
-    body.theme-light {
-      --bg-body: #f9fafb;
-      --bg-surface: #ffffff;
-      --bg-surface-soft: #f1f5f9;
-      --border-color: #cbd5e1;
-      --border-subtle: #e2e8f0;
-      --text-main: #0f172a;
-      --text-soft: #475569;
-      --shadow-strong: 0 18px 40px rgba(15,23,42,0.1);
-      --shadow-soft: 0 10px 24px rgba(15,23,42,0.06);
-      --hero-glow: rgba(56,189,248,0.12);
-      --intro-border: rgba(148,163,184,0.55);
-      --footer-bg: #e5e7eb;
+      --border: #1e293b;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      background: var(--bg-body);
-      color: var(--text-main);
+      background: #0f172a;
+      color: #e5e7eb;
       line-height: 1.6;
       overflow-x: hidden;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    /* BACKGROUND PATTERN */
-
-    .bg-pattern {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      animation: drift 40s linear infinite alternate;
-    }
-
-    body.theme-dark .bg-pattern {
-      background:
-        radial-gradient(circle at 0% 0%, rgba(56,189,248,0.18), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(56,189,248,0.14), transparent 55%),
-        repeating-linear-gradient(
-          135deg,
-          rgba(148,163,184,0.08) 0,
-          rgba(148,163,184,0.08) 1px,
-          transparent 1px,
-          transparent 10px
-        );
-      opacity: 0.8;
-    }
-
-    body.theme-light .bg-pattern {
-      background:
-        radial-gradient(circle at 0% 0%, rgba(56,189,248,0.22), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(56,189,248,0.14), transparent 55%),
-        repeating-linear-gradient(
-          135deg,
-          rgba(148,163,184,0.14) 0,
-          rgba(148,163,184,0.14) 1px,
-          transparent 1px,
-          transparent 12px
-        );
-      opacity: 0.6;
-    }
-
-    @keyframes drift {
-      from {
-        background-position: 0 0, 100% 100%, 0 0;
-      }
-      to {
-        background-position: -80px 40px, calc(100% + 80px) calc(100% - 40px), 40px 60px;
-      }
     }
 
     /* HEADER */
-
     .hero-bar {
-      background:
-        radial-gradient(circle at top, var(--hero-glow), transparent 55%),
-        var(--bg-surface);
-      height: 170px;
-      padding: 20px 40px;
+      background: #0f172a;
+      height: 150px;
+      padding: 18px 40px;
       position: sticky;
       top: 0;
       z-index: 200;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(10px);
-      transition: height var(--transition-base), padding var(--transition-base),
-                  background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .hero-inner {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border-bottom: 1px solid #1e293b;
+      transition: height 0.28s ease, padding 0.28s ease;
     }
 
     .hero-logo img {
-      height: 135px;
+      height: 120px;
       width: auto;
       object-fit: contain;
-      transition: height var(--transition-base), transform var(--transition-base), opacity 0.3s ease;
-      animation: logoFloat 14s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat {
-      0%   { transform: translateY(0); }
-      50%  { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
+      transition: height 0.28s ease, max-height 0.28s ease;
     }
 
     .hero-bar.shrink {
-      height: 90px;
-      padding: 10px 25px;
-      box-shadow: var(--shadow-soft);
-      background: var(--bg-surface-soft);
+      height: 80px;
+      padding: 0 30px;
     }
 
     .hero-bar.shrink .hero-logo img {
-      height: 80px;
-      animation: none;
-      transform: translateY(0);
-    }
-
-    /* THEME TOGGLE */
-
-    .theme-toggle {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 26px;
-      border-radius: 999px;
-      border: 1px solid var(--border-color);
-      background: var(--bg-surface-soft);
-      cursor: pointer;
-      padding: 0;
-      outline: none;
-      box-shadow: inset 0 0 0 1px rgba(15,23,42,0.05);
-      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .theme-toggle-knob {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(56,189,248,0.75);
-      transform: translateX(-9px);
-      transition: transform 0.25s ease;
-    }
-
-    .theme-toggle-icon {
-      position: absolute;
-      font-size: 13px;
-      pointer-events: none;
-      color: var(--text-soft);
-      transition: opacity 0.25s ease;
-    }
-
-    .theme-toggle-icon.sun {
-      opacity: 0;
-      right: 10px;
-    }
-
-    .theme-toggle-icon.moon {
-      opacity: 1;
-      left: 10px;
-    }
-
-    body.theme-light .theme-toggle-knob {
-      transform: translateX(9px);
-      box-shadow: 0 0 10px rgba(56,189,248,0.6);
-    }
-
-    body.theme-light .theme-toggle-icon.sun {
-      opacity: 1;
-    }
-
-    body.theme-light .theme-toggle-icon.moon {
-      opacity: 0;
-    }
-
-    /* LOGO VARIANTS */
-
-    .logo-dark {
-      display: block;
-    }
-    .logo-light {
-      display: none;
-    }
-
-    body.theme-light .logo-dark {
-      display: none;
-    }
-    body.theme-light .logo-light {
-      display: block;
+      height: 70px;
+      max-height: 70px;
     }
 
     /* LINKS */
-
     a {
       position: relative;
-      color: #0ea5e9;
+      color: #38bdf8;
       text-decoration: none;
       padding-bottom: 2px;
-      transition: color 0.2s ease;
     }
-
-    body.theme-dark a {
-      color: var(--accent);
-    }
-
     a::after {
       content: "";
       position: absolute;
@@ -294,8 +79,8 @@
       bottom: -2px;
       width: 0%;
       height: 2px;
-      background: currentColor;
-      box-shadow: 0 0 10px rgba(56,189,248,0.9);
+      background: #38bdf8;
+      box-shadow: 0 0 8px #38bdf8;
       transition: width 0.3s ease;
     }
     a:hover::after {
@@ -303,20 +88,13 @@
     }
 
     /* LAYOUT */
-
     .container {
       max-width: 1000px;
-      margin: 50px auto 60px auto;
-      padding: 24px 24px 40px 24px;
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-strong);
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      margin: 50px auto;
+      padding: 20px;
     }
 
-    /* REVEAL */
-
+    /* Reveal animation */
     section {
       margin-bottom: 60px;
       opacity: 0;
@@ -325,6 +103,7 @@
     section.revealed {
       animation: reveal 0.9s ease-out forwards;
     }
+
     @keyframes reveal {
       from { opacity: 0; transform: translateY(35px); }
       to { opacity: 1; transform: translateY(0); }
@@ -334,44 +113,34 @@
       font-size: 24px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid #334155;
       padding-bottom: 8px;
       margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 10px;
-      color: var(--text-main);
     }
 
     .icon {
       height: 20px;
       width: 20px;
-      stroke: var(--accent);
+      stroke: #38bdf8;
       stroke-width: 2;
       fill: none;
     }
 
     /* INTRO */
-
     .intro {
       text-align: center;
       font-size: 20px;
-      max-width: 750px;
-      margin: 30px auto 50px auto;
-      color: var(--text-soft);
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      color: #cbd5e1;
       line-height: 1.4;
-      padding: 16px 20px;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 60%),
-        var(--bg-surface);
-      border: 1px solid var(--intro-border);
-      box-shadow: var(--shadow-soft);
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+      padding-top: 20px;
     }
 
     /* ABOUT */
-
     .about-layout {
       display: flex;
       flex-direction: column;
@@ -380,97 +149,55 @@
       text-align: center;
     }
 
-    .about-portrait img {
-      width: 260px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @media (min-width: 720px) {
+      .about-layout {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+      }
     }
 
-    .about-portrait img:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-strong);
+    .about-portrait img {
+      width: 260px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
     }
 
     .pill {
       display: inline-block;
       padding: 7px 12px;
       margin: 4px;
-      border-radius: var(--radius-pill);
-      background: var(--bg-surface-soft);
-      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      background: #1e293b;
+      border: 1px solid #475569;
       font-size: 13px;
       letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-    }
-
-    .pill:hover {
-      transform: translateY(-1px) scale(1.03);
-      border-color: var(--accent);
-      background: rgba(15,23,42,0.98);
-      color: #e5e7eb;
-      box-shadow: 0 0 18px rgba(56,189,248,0.45);
-    }
-
-    body.theme-light .pill:hover {
-      background: #0f172a;
-    }
-
-    @media (min-width: 720px) {
-      .about-layout {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-      }
     }
 
     /* ACCORDIONS */
-
     .accordion {
       margin: 12px 0;
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      background: var(--bg-surface-soft);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease, background 0.25s ease;
-    }
-
-    .accordion:hover {
-      border-color: rgba(56,189,248,0.6);
-      box-shadow: var(--shadow-strong);
-      transform: translateY(-2px);
+      border: 1px solid #334155;
+      border-radius: 6px;
+      background: #1e2538;
     }
 
     .accordion-header {
-      padding: 14px 16px;
+      padding: 14px;
       cursor: pointer;
       font-size: 18px;
-      background: #111827;
-      color: #e5e7eb;
+      background: #1e293b;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-
-    body.theme-light .accordion-header {
-      background: #e2e8f0;
-      color: #0f172a;
     }
 
     .accordion-header:hover {
-      background: #020617;
-    }
-
-    body.theme-light .accordion-header:hover {
-      background: #cbd5e1;
+      background: #243044;
     }
 
     .chevron {
-      stroke: var(--accent);
+      stroke: #38bdf8;
       width: 18px;
       height: 18px;
       transition: transform 0.3s ease;
@@ -479,44 +206,27 @@
     .accordion-content {
       max-height: 0;
       overflow: hidden;
-      padding: 0 16px;
-      background: #0f172a;
-      color: #e5e7eb;
-      transition: max-height 0.35s ease, padding 0.35s ease, background 0.3s ease, color 0.3s ease;
-    }
-
-    body.theme-light .accordion-content {
-      background: #f8fafc;
-      color: #020617;
+      padding: 0;
+      background: #1c2433;
+      transition: max-height 0.35s ease, padding 0.35s ease;
     }
 
     .accordion.open .accordion-content {
-      padding: 14px 16px 14px 16px;
+      padding: 14px;
     }
 
     .accordion.open .chevron {
       transform: rotate(180deg);
     }
 
-    /* CONTACT */
-
-    p {
-      color: var(--text-main);
-    }
-
     /* FOOTER */
-
     footer {
-      background: var(--footer-bg);
-      padding: 28px 32px;
+      background: #0b1220;
+      padding: 30px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      border-top: 1px solid var(--border-color);
-      box-shadow: 0 -10px 30px rgba(15,23,42,0.3);
-      margin-top: 40px;
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      align-items: center;
+      border-top: 1px solid #1e293b;
     }
 
     .footer-left {
@@ -524,7 +234,6 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 6px;
-
       opacity: 0;
       transform: translateX(-40px);
       transition: all 0.9s ease-out;
@@ -541,17 +250,14 @@
       width: auto;
     }
 
-    .footer-right img {
+    footer img.footer-characters {
       height: 80px;
       width: auto;
-      object-fit: contain;
-      display: block;
     }
 
     footer span {
-      color: var(--text-soft);
+      color: #94a3b8;
       font-size: 14px;
-      transition: color 0.3s ease;
     }
 
     .footer-animate .footer-left,
@@ -559,41 +265,15 @@
       opacity: 1;
       transform: translateX(0);
     }
-
-    @media (max-width: 640px) {
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .footer-right img {
-        height: 70px;
-      }
-    }
   </style>
 </head>
 
-<body class="theme-dark">
-
-  <!-- BACKGROUND PATTERN -->
-  <div class="bg-pattern"></div>
+<body>
 
   <!-- HEADER -->
   <div class="hero-bar" id="heroBar">
-    <div class="hero-inner">
-      <div class="hero-logo">
-        <!-- Dark-mode logo -->
-        <img src="IMG_0992.png" alt="WheatScript Logo" class="logo-dark" />
-        <!-- Light-mode logo (Option 2) -->
-        <img src="IMG_0992-light.png" alt="WheatScript Logo Light" class="logo-light" />
-      </div>
-
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle color mode">
-        <span class="theme-toggle-knob"></span>
-        <span class="theme-toggle-icon moon">☾</span>
-        <span class="theme-toggle-icon sun">☀︎</span>
-      </button>
+    <div class="hero-logo">
+      <img src="IMG_0992.png" alt="WheatScript Logo" />
     </div>
   </div>
 
@@ -603,12 +283,15 @@
     WheatScript helps teams streamline workflows, improve communication, and build processes that scale with intention.
   </div>
 
+  <!-- MAIN CONTENT -->
   <div class="container">
 
-    <!-- ABOUT -->
+    <!-- ABOUT SECTION -->
     <section>
       <h2>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/></svg>
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/>
+        </svg>
         Meet Billy
       </h2>
 
@@ -617,14 +300,9 @@
           <img src="Billy-Portrait.png.PNG" alt="Billy portrait" />
         </div>
 
-        <div class="about-text">
-          <p>
-            WheatScript helps teams transform messy, ad-hoc processes into clear, reliable systems. Billy’s background spans healthcare leadership, workflow design, client experience, and systems strategy — blending people-first insight with clean operational structure.
-          </p>
-
-          <p>
-            The goal: less chaos, more clarity, and workflows that feel intuitive instead of exhausting.
-          </p>
+        <div>
+          <p>I am an operations and communications consultant who helps teams turn messy, ad-hoc processes into clear, reliable systems.</p>
+          <p>I design workflows that eliminate friction, improve clarity, and help teams operate with confidence.</p>
 
           <div>
             <span class="pill">Operations</span>
@@ -649,9 +327,9 @@
         </div>
         <div class="accordion-content">
           <ul>
-            <li>Workflow audits and systems cleanup</li>
-            <li>Redesign for clarity and speed</li>
-            <li>Handoff and turnaround optimization</li>
+            <li>Workflow audits & systems cleanup</li>
+            <li>Redesign for clarity & speed</li>
+            <li>Handoff & turnaround optimization</li>
             <li>Implementation guidance</li>
           </ul>
         </div>
@@ -664,21 +342,21 @@
         <div class="accordion-content">
           <ul>
             <li>Internal communication frameworks</li>
-            <li>Client and patient experience design</li>
-            <li>Interviewing and feedback systems</li>
+            <li>Client & patient experience design</li>
+            <li>Interviewing & feedback systems</li>
             <li>Structure for difficult conversations</li>
           </ul>
         </div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-header">Systems and Automation
+        <div class="accordion-header">Systems & Automation
           <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="accordion-content">
           <ul>
-            <li>CRM and EMR automation</li>
-            <li>Process mapping and documentation</li>
+            <li>CRM & EMR automation</li>
+            <li>Process mapping & documentation</li>
             <li>Lightweight dashboards</li>
             <li>Error-reducing workflow design</li>
           </ul>
@@ -693,7 +371,7 @@
           <ul>
             <li>Patient flow redesign</li>
             <li>Provider communication systems</li>
-            <li>Scheduling and intake optimization</li>
+            <li>Scheduling & intake optimization</li>
             <li>Compliance-aware workflow design</li>
           </ul>
         </div>
@@ -703,7 +381,9 @@
     <!-- CONTACT -->
     <section>
       <h2>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/></svg>
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/>
+        </svg>
         Contact
       </h2>
 
@@ -719,43 +399,16 @@
   <!-- FOOTER -->
   <footer id="footer">
     <div class="footer-left">
-      <img src="IMG_0992.png" alt="WheatScript logo" class="footer-logo logo-dark" />
-      <img src="IMG_0992-light.png" alt="WheatScript logo light" class="footer-logo logo-light" />
+      <img src="IMG_0992.png" alt="WheatScript logo" class="footer-logo" />
       <span>© <script>document.write(new Date().getFullYear())</script> WheatScript Consulting</span>
     </div>
     <div class="footer-right">
-      <img src="Billy-Henry-Footer.png" alt="Billy and Henry illustration" />
+      <img src="Billy-Henry-Footer.png" alt="Billy & Henry illustration" class="footer-characters" />
     </div>
   </footer>
 
   <script>
-    /* THEME LOGIC */
-    const body = document.body;
-    const themeToggle = document.getElementById("themeToggle");
-
-    function applyTheme(theme) {
-      body.classList.remove("theme-dark", "theme-light");
-      body.classList.add("theme-" + theme);
-      localStorage.setItem("ws-theme", theme);
-    }
-
-    (function initTheme() {
-      const stored = localStorage.getItem("ws-theme");
-      if (stored === "light" || stored === "dark") {
-        applyTheme(stored);
-      } else {
-        const prefersLight = window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: light)").matches;
-        applyTheme(prefersLight ? "light" : "dark");
-      }
-    })();
-
-    themeToggle.addEventListener("click", () => {
-      const isDark = body.classList.contains("theme-dark");
-      applyTheme(isDark ? "light" : "dark");
-    });
-
-    /* Section Reveal */
+    /* Reveal animation */
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -790,8 +443,9 @@
       else heroBar.classList.remove("shrink");
     });
 
-    /* Footer fly-in */
+    /* Footer animation */
     const footer = document.getElementById("footer");
+
     const footerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -802,5 +456,6 @@
 
     footerObserver.observe(footer);
   </script>
+
 </body>
 </html>
