@@ -18,7 +18,42 @@
     overflow-x: hidden;
   }
 
-  /* Glowing underline links */
+  /* Header with side spacing */
+  .hero-bar {
+    background: #0f172a;
+    height: 140px;
+    padding: 0 40px; /* <<< SIDE WHITE SPACE ADDED */
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    transition: height 0.28s ease, padding 0.28s ease;
+  }
+
+  .hero-logo img {
+    height: 140px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+    transition: height 0.28s ease;
+  }
+
+  .hero-bar.shrink {
+    height: 80px;
+    padding: 0 30px; /* slightly reduce side spacing when shrinking */
+  }
+
+  .hero-bar.shrink .hero-logo img {
+    height: 80px;
+  }
+
+  /* Glowing links */
   a {
     position: relative;
     color: #38bdf8;
@@ -40,41 +75,7 @@
     width: 100%;
   }
 
-  /* HEADER */
-  .hero-bar {
-    background: #0f172a;
-    height: 140px;
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #1e293b;
-    transition: height 0.28s ease;
-  }
-
-  .hero-logo img {
-    height: 140px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-    object-position: center;
-    margin: 0;
-    padding: 0;
-    transition: height 0.28s ease;
-  }
-
-  .hero-bar.shrink {
-    height: 80px;
-  }
-
-  .hero-bar.shrink .hero-logo img {
-    height: 80px;
-  }
-
-  /* CONTENT */
+  /* Main container */
   .container {
     max-width: 900px;
     margin: 40px auto;
@@ -92,14 +93,8 @@
   }
 
   @keyframes reveal {
-    0% {
-      opacity: 0;
-      transform: translateY(35px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(35px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
   h2 {
@@ -124,7 +119,6 @@
     fill: none;
   }
 
-  /* Pills */
   .pill {
     display: inline-block;
     padding: 7px 12px;
@@ -140,7 +134,6 @@
     margin-top: 15px;
   }
 
-  /* Accordion */
   .accordion {
     margin: 12px 0;
     border: 1px solid #334155;
@@ -158,7 +151,6 @@
     justify-content: space-between;
     align-items: center;
   }
-
   .accordion-header:hover {
     background: #243044;
   }
@@ -181,7 +173,6 @@
   .accordion.open .accordion-content {
     padding: 14px;
   }
-
   .accordion.open .chevron {
     transform: rotate(180deg);
   }
@@ -198,29 +189,25 @@
 
 <body>
 
-<!-- HEADER WITH NEW LOGO -->
+<!-- HEADER -->
 <div class="hero-bar" id="heroBar">
   <div class="hero-logo">
     <img src="IMG_0992.png" alt="WheatScript Logo" />
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="container">
 
-  <!-- ABOUT -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
-        <path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z" />
+        <path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/>
       </svg>
       About Billy
     </h2>
 
     <p>
-      I am a multidisciplinary operations and communications consultant experienced
-      in healthcare leadership, systems design, clinical workflows and client-facing
-      service.
+      I am a multidisciplinary operations and communications consultant experienced in healthcare leadership, systems design, clinical workflows and client-facing service.
     </p>
 
     <div class="pill-row">
@@ -231,11 +218,10 @@
     </div>
   </section>
 
-  <!-- WHAT I DO -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16" />
+        <path d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
       What I Do
     </h2>
@@ -243,15 +229,13 @@
     <div class="accordion">
       <div class="accordion-header">
         Operations Efficiency
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="accordion-content">
         <ul>
           <li>Workflow evaluation and bottleneck detection</li>
           <li>Process redesign and cleanup</li>
-          <li>Turnaround time improvements</li>
+          <li>Turnaround improvements</li>
           <li>Automation and integrations</li>
         </ul>
       </div>
@@ -260,16 +244,14 @@
     <div class="accordion">
       <div class="accordion-header">
         Communications Strategy
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="accordion-content">
         <ul>
           <li>Communication frameworks</li>
-          <li>Client and patient experience design</li>
+          <li>Experience design</li>
           <li>Interviewing and evaluations</li>
-          <li>Clarity-driven conflict reduction</li>
+          <li>Conflict reduction systems</li>
         </ul>
       </div>
     </div>
@@ -277,15 +259,13 @@
     <div class="accordion">
       <div class="accordion-header">
         Systems and Automation
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="accordion-content">
         <ul>
-          <li>CRM and EMR workflow automations</li>
-          <li>Process mapping and documentation</li>
-          <li>Knowledge base creation</li>
+          <li>CRM and EMR automations</li>
+          <li>Process mapping</li>
+          <li>Knowledge base design</li>
           <li>Reducing manual workload</li>
         </ul>
       </div>
@@ -294,42 +274,39 @@
     <div class="accordion">
       <div class="accordion-header">
         Clinical Operations
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="accordion-content">
         <ul>
           <li>Patient flow redesign</li>
           <li>Provider communication systems</li>
-          <li>Scheduling and intake optimization</li>
-          <li>Compliance-minded workflows</li>
+          <li>Scheduling optimization</li>
+          <li>Compliance-centered workflow structuring</li>
         </ul>
       </div>
     </div>
+
   </section>
 
-  <!-- CONTACT -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
-        <path d="M4 4h16v16H4z" />
-        <path d="M4 4l8 7 8-7" />
+        <path d="M4 4h16v16H4z"/>
+        <path d="M4 4l8 7 8-7"/>
       </svg>
       Contact
     </h2>
 
     <p>
       <strong>Email:</strong>
-      <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br />
-      <strong>Phone:</strong> (816) 237-8631<br />
+      <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
+      <strong>Phone:</strong> (816) 237-8631<br>
       <strong>Location:</strong> Kansas City, Mo.
     </p>
   </section>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
   <script>
     document.write("© " + new Date().getFullYear() + " WheatScript Consulting");
@@ -337,21 +314,17 @@
 </footer>
 
 <script>
-  /* Reveal on scroll */
+  // Reveal on scroll
   const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("revealed");
+    });
+  }, { threshold: 0.1 });
+
   sections.forEach(section => observer.observe(section));
 
-  /* Accordion */
+  // Accordion
   const accordions = document.querySelectorAll(".accordion");
   accordions.forEach(acc => {
     const header = acc.querySelector(".accordion-header");
@@ -372,9 +345,8 @@
     });
   });
 
-  /* Shrinking header */
+  // Shrinking header
   const heroBar = document.getElementById("heroBar");
-
   window.addEventListener("scroll", () => {
     if (window.scrollY > 30) {
       heroBar.classList.add("shrink");
