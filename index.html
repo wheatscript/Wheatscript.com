@@ -19,13 +19,12 @@
   }
 
   /* -------------------------------------------------------- */
-  /* HEADER (with fixed logo initialization behavior)         */
+  /* HEADER (with fixed logo behavior)                        */
   /* -------------------------------------------------------- */
-
   .hero-bar {
     background: #0f172a;
     height: 140px;
-    padding: 0 40px; /* spacing on sides */
+    padding: 0 40px;
     position: sticky;
     top: 0;
     z-index: 200;
@@ -37,8 +36,8 @@
   }
 
   .hero-logo img {
-    height: 120px;      /* FIX: safe starting height */
-    max-height: 120px;  /* FIX: prevents overflow on load */
+    height: 120px;
+    max-height: 120px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -59,7 +58,7 @@
   }
 
   /* -------------------------------------------------------- */
-  /* GLOW LINKS */
+  /* LINKS (glowing underline)                                */
   /* -------------------------------------------------------- */
   a {
     position: relative;
@@ -67,6 +66,7 @@
     text-decoration: none;
     padding-bottom: 2px;
   }
+
   a::after {
     content: "";
     position: absolute;
@@ -78,14 +78,14 @@
     box-shadow: 0 0 8px #38bdf8;
     transition: width 0.3s ease;
   }
+
   a:hover::after {
     width: 100%;
   }
 
   /* -------------------------------------------------------- */
-  /* CONTENT */
+  /* LAYOUT                                                   */
   /* -------------------------------------------------------- */
-
   .container {
     max-width: 900px;
     margin: 40px auto;
@@ -130,8 +130,30 @@
   }
 
   /* -------------------------------------------------------- */
-  /* PILLS */
+  /* ABOUT LAYOUT WITH PORTRAIT                               */
   /* -------------------------------------------------------- */
+  .about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-portrait {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-portrait img {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  }
+
+  .about-text {
+    flex: 1 1 auto;
+  }
 
   .pill {
     display: inline-block;
@@ -148,10 +170,21 @@
     margin-top: 15px;
   }
 
-  /* -------------------------------------------------------- */
-  /* ACCORDIONS */
-  /* -------------------------------------------------------- */
+  /* Larger screens: side-by-side portrait + text */
+  @media (min-width: 720px) {
+    .about-layout {
+      flex-direction: row;
+      align-items: center;
+    }
 
+    .about-portrait {
+      justify-content: flex-start;
+    }
+  }
+
+  /* -------------------------------------------------------- */
+  /* ACCORDIONS                                               */
+  /* -------------------------------------------------------- */
   .accordion {
     margin: 12px 0;
     border: 1px solid #334155;
@@ -210,7 +243,7 @@
 <body>
 
 <!-- -------------------------------------------------------- -->
-<!-- HEADER WITH FIXED LOGO BEHAVIOR -->
+<!-- HEADER                                                   -->
 <!-- -------------------------------------------------------- -->
 <div class="hero-bar" id="heroBar">
   <div class="hero-logo">
@@ -220,30 +253,49 @@
 
 <div class="container">
 
-  <!-- ABOUT -->
+  <!-- ------------------------------------------------------ -->
+  <!-- ABOUT BILLY (WITH PORTRAIT)                            -->
+  <!-- ------------------------------------------------------ -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
-        <path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/>
+        <path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z" />
       </svg>
       About Billy
     </h2>
 
-    <p>
-      I am a multidisciplinary operations and communications consultant experienced
-      in healthcare leadership, systems design, clinical workflows and client-facing
-      service.
-    </p>
+    <div class="about-layout">
+      <div class="about-portrait">
+        <!-- Upload your illustration as billy-portrait.png or change src -->
+        <img src="billy-portrait.png" alt="Illustrated portrait of Billy Holdeman-Bass" />
+      </div>
 
-    <div class="pill-row">
-      <span class="pill">Operations</span>
-      <span class="pill">Communications</span>
-      <span class="pill">Systems</span>
-      <span class="pill">Clinical Ops</span>
+      <div class="about-text">
+        <p>
+          I am an operations and communications consultant who helps teams turn messy, ad-hoc processes
+          into clear systems that actually support the work. My background spans healthcare leadership,
+          clinical workflows, client-facing service and systems design, which lets me move comfortably
+          between strategy, operations and the day-to-day reality of how people work.
+        </p>
+        <p>
+          I focus on designing workflows that are humane, efficient and scalable&mdash;whether that means
+          tightening intake, cleaning up communication loops, or building automation that quietly removes
+          friction in the background.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Operations</span>
+          <span class="pill">Communications</span>
+          <span class="pill">Systems</span>
+          <span class="pill">Clinical Ops</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- WHAT I DO -->
+  <!-- ------------------------------------------------------ -->
+  <!-- WHAT I DO                                              -->
+  <!-- ------------------------------------------------------ -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
@@ -255,14 +307,16 @@
     <div class="accordion">
       <div class="accordion-header">
         Operations Efficiency
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        <svg class="chevron" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
       </div>
       <div class="accordion-content">
         <ul>
-          <li>Workflow evaluation and bottleneck detection</li>
-          <li>Process redesign and cleanup</li>
-          <li>Turnaround time improvements</li>
-          <li>Automation and integrations</li>
+          <li>Audit of current workflows and pain points</li>
+          <li>Redesign of processes for clarity and speed</li>
+          <li>Turnaround time and handoff improvements</li>
+          <li>Implementation support and change guidance</li>
         </ul>
       </div>
     </div>
@@ -270,14 +324,16 @@
     <div class="accordion">
       <div class="accordion-header">
         Communications Strategy
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        <svg class="chevron" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
       </div>
       <div class="accordion-content">
         <ul>
-          <li>Communication frameworks</li>
+          <li>Internal communication frameworks and scripts</li>
           <li>Client and patient experience design</li>
-          <li>Interviewing and evaluations</li>
-          <li>Clarity-driven conflict reduction</li>
+          <li>Interviewing and feedback systems</li>
+          <li>Conflict-reducing structure for tough conversations</li>
         </ul>
       </div>
     </div>
@@ -285,14 +341,16 @@
     <div class="accordion">
       <div class="accordion-header">
         Systems and Automation
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        <svg class="chevron" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
       </div>
       <div class="accordion-content">
         <ul>
           <li>CRM and EMR workflow automations</li>
           <li>Process mapping and documentation</li>
-          <li>Knowledge base creation</li>
-          <li>Reducing manual workload</li>
+          <li>Lightweight dashboards and tracking</li>
+          <li>Reducing manual, error-prone tasks</li>
         </ul>
       </div>
     </div>
@@ -300,86 +358,33 @@
     <div class="accordion">
       <div class="accordion-header">
         Clinical Operations
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        <svg class="chevron" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
       </div>
       <div class="accordion-content">
         <ul>
-          <li>Patient flow redesign</li>
-          <li>Provider communication systems</li>
-          <li>Scheduling optimization</li>
-          <li>Compliance-centered workflows</li>
+          <li>Patient flow and visit structure redesign</li>
+          <li>Provider communication and escalation paths</li>
+          <li>Scheduling and intake optimization</li>
+          <li>Compliance-aware workflow structuring</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ------------------------------------------------------ -->
+  <!-- CONTACT                                                -->
+  <!-- ------------------------------------------------------ -->
   <section>
     <h2>
       <svg class="icon" viewBox="0 0 24 24">
-        <path d="M4 4h16v16H4z"/>
-        <path d="M4 4l8 7 8-7"/>
+        <path d="M4 4h16v16H4z" />
+        <path d="M4 4l8 7 8-7" />
       </svg>
       Contact
     </h2>
 
     <p>
       <strong>Email:</strong>
-      <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br>
-      <strong>Phone:</strong> (816) 237-8631<br>
-      <strong>Location:</strong> Kansas City, Mo.
-    </p>
-  </section>
-
-</div>
-
-<footer>
-  <script>
-    document.write("© " + new Date().getFullYear() + " WheatScript Consulting");
-  </script>
-</footer>
-
-<script>
-  /* Reveal on scroll */
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("revealed");
-    })
-  }, { threshold: 0.1 });
-  sections.forEach(section => observer.observe(section));
-
-  /* Accordion behavior */
-  const accordions = document.querySelectorAll(".accordion");
-  accordions.forEach(acc => {
-    const header = acc.querySelector(".accordion-header");
-    const content = acc.querySelector(".accordion-content");
-
-    header.addEventListener("click", () => {
-      const isOpen = acc.classList.contains("open");
-
-      document.querySelectorAll(".accordion.open").forEach(a => {
-        a.classList.remove("open");
-        a.querySelector(".accordion-content").style.maxHeight = null;
-      });
-
-      if (!isOpen) {
-        acc.classList.add("open");
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-  });
-
-  /* Shrinking header behavior */
-  const heroBar = document.getElementById("heroBar");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 30) {
-      heroBar.classList.add("shrink");
-    } else {
-      heroBar.classList.remove("shrink");
-    }
-  });
-</script>
-
-</body>
-</html>
+      <a href="mailto:billy@wheatscript.com">billy@whe
