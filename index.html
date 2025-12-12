@@ -201,7 +201,7 @@
 <!-- HEADER WITH NEW LOGO -->
 <div class="hero-bar" id="heroBar">
   <div class="hero-logo">
-    <img src="7177daed-ef04-42cd-aa63-311e0c5bbbda 2.png" alt="WheatScript Logo" />
+    <img src="IMG_0992.png" alt="WheatScript Logo" />
   </div>
 </div>
 
@@ -217,7 +217,11 @@
       About Billy
     </h2>
 
-    <p>I am a multidisciplinary operations and communications consultant experienced in healthcare leadership, systems design, clinical workflows and client-facing service.</p>
+    <p>
+      I am a multidisciplinary operations and communications consultant experienced
+      in healthcare leadership, systems design, clinical workflows and client-facing
+      service.
+    </p>
 
     <div class="pill-row">
       <span class="pill">Operations</span>
@@ -333,7 +337,7 @@
 </footer>
 
 <script>
-  // Reveal on scroll
+  /* Reveal on scroll */
   const sections = document.querySelectorAll("section");
   const observer = new IntersectionObserver(
     entries => {
@@ -347,7 +351,7 @@
   );
   sections.forEach(section => observer.observe(section));
 
-  // Accordion behavior
+  /* Accordion */
   const accordions = document.querySelectorAll(".accordion");
   accordions.forEach(acc => {
     const header = acc.querySelector(".accordion-header");
@@ -368,7 +372,7 @@
     });
   });
 
-  // Shrinking header behavior
+  /* Shrinking header */
   const heroBar = document.getElementById("heroBar");
 
   window.addEventListener("scroll", () => {
