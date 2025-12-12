@@ -17,7 +17,27 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wheatscript.com" />
 
-  <link rel="icon" href="favicon.ico" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "WheatScript Consulting",
+    "image": "Billy-Portrait.png.PNG",
+    "description": "Operations, communications, and systems consulting focused on clarity, workflow improvement, and human-centered process design.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kansas City",
+      "addressRegion": "MO",
+      "addressCountry": "US"
+    },
+    "url": "https://wheatscript.com",
+    "telephone": "+18162378631"
+  }
+  </script>
 
   <style>
     body {
@@ -46,9 +66,9 @@
 
     .hero-logo img {
       height: 120px;
-      width: auto;
+      max-height: 120px;
       object-fit: contain;
-      transition: height 0.28s ease;
+      transition: height 0.28s ease, max-height 0.28s ease;
     }
 
     .hero-bar.shrink {
@@ -58,6 +78,7 @@
 
     .hero-bar.shrink .hero-logo img {
       height: 70px;
+      max-height: 70px;
     }
 
     /* LINKS */
@@ -84,12 +105,12 @@
 
     /* LAYOUT */
     .container {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 40px 22px;
+      max-width: 1000px; /* wider margins */
+      margin: 50px auto;
+      padding: 20px;
     }
 
-    /* SECTION REVEAL */
+    /* Reveal Animations */
     section {
       margin-bottom: 60px;
       opacity: 0;
@@ -123,22 +144,24 @@
       fill: none;
     }
 
-    /* INTRO BLOCK */
+    /* INTRO TEXT */
     .intro {
+      background: #0f172a;
       text-align: center;
       font-size: 20px;
       max-width: 700px;
       margin: 0 auto 40px auto;
-      line-height: 1.4;
       color: #cbd5e1;
+      line-height: 1.4;
+      padding-top: 20px;
     }
 
-    /* ABOUT */
+    /* ABOUT LAYOUT */
     .about-layout {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 24px;
+      align-items: center; /* center portrait */
       text-align: center;
     }
 
@@ -146,13 +169,6 @@
       width: 260px;
       border-radius: 18px;
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-    }
-
-    @media (min-width: 720px) {
-      .about-layout {
-        flex-direction: row;
-        text-align: left;
-      }
     }
 
     .pill {
@@ -164,6 +180,14 @@
       border: 1px solid #475569;
       font-size: 13px;
       letter-spacing: 0.07em;
+    }
+
+    @media (min-width: 720px) {
+      .about-layout {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+      }
     }
 
     /* ACCORDIONS */
@@ -183,17 +207,8 @@
       justify-content: space-between;
       align-items: center;
     }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      padding: 0 14px;
-      background: #1c2433;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-
-    .accordion.open .accordion-content {
-      padding: 14px;
+    .accordion-header:hover {
+      background: #243044;
     }
 
     .chevron {
@@ -203,6 +218,18 @@
       transition: transform 0.3s ease;
     }
 
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+      background: #1c2433;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .accordion.open .accordion-content {
+      padding: 14px;
+    }
+
     .accordion.open .chevron {
       transform: rotate(180deg);
     }
@@ -210,29 +237,45 @@
     /* FOOTER */
     footer {
       background: #0b1220;
-      padding: 30px 40px;
+      padding: 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid #1e293b;
     }
 
-    footer-left {
+    .footer-left {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.9s ease-out;
     }
 
-    footer img.logo {
-      height: 32px;
+    .footer-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 0.9s ease-out;
+    }
+
+    .footer-logo {
+      height: 40px;
       width: auto;
     }
 
-    footer .footer-portrait {
-      height: 110px;
+    footer img.footer-characters {
+      height: 80px;
       width: auto;
-      object-fit: contain;
     }
 
+    .footer-animate .footer-left,
+    .footer-animate .footer-right {
+      opacity: 1;
+      transform: translateX(0);
+    }
   </style>
 </head>
 
@@ -262,15 +305,15 @@
 
       <div class="about-layout">
         <div class="about-portrait">
-          <img src="Billy-Portrait.png.PNG" alt="Billy portrait" />
+          <img src="Billy-Portrait.png.PNG" alt="Billy Portrait" />
         </div>
 
         <div class="about-text">
           <p>
-            WheatScript helps teams turn messy, ad-hoc processes into clear, reliable systems. With a blend of operations strategy, workflow design, and communication structure, Billy brings clarity to the chaos.
+            I am an operations and communications consultant who helps teams turn messy, ad-hoc processes into clear, reliable systems. My background spans healthcare leadership, workflow design, client experience, and systems strategy — giving me a blend of practical and people-centered insight.
           </p>
           <p>
-            The work centers on alignment, efficiency, and taking friction out of everyday operations.
+            I design workflows that eliminate friction, improve clarity, and help teams operate with confidence. The goal is simple: less chaos, more alignment, better outcomes.
           </p>
 
           <div>
@@ -297,8 +340,9 @@
         <div class="accordion-content">
           <ul>
             <li>Workflow audits & systems cleanup</li>
-            <li>Clarity-based redesign</li>
-            <li>Turnaround & handoff optimization</li>
+            <li>Redesign for clarity & speed</li>
+            <li>Handoff & turnaround optimization</li>
+            <li>Implementation guidance</li>
           </ul>
         </div>
       </div>
@@ -309,9 +353,10 @@
         </div>
         <div class="accordion-content">
           <ul>
-            <li>Internal communication systems</li>
-            <li>Client & patient experience flow</li>
-            <li>Structured feedback loops</li>
+            <li>Internal communication frameworks</li>
+            <li>Client & patient experience design</li>
+            <li>Interviewing & feedback systems</li>
+            <li>Structure for difficult conversations</li>
           </ul>
         </div>
       </div>
@@ -322,9 +367,24 @@
         </div>
         <div class="accordion-content">
           <ul>
-            <li>CRM / EMR automation</li>
-            <li>Process mapping</li>
+            <li>CRM & EMR automation</li>
+            <li>Process mapping & documentation</li>
+            <li>Lightweight dashboards</li>
             <li>Error-reducing workflow design</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-header">Clinical Operations
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Patient flow redesign</li>
+            <li>Provider communication systems</li>
+            <li>Scheduling & intake optimization</li>
+            <li>Compliance-aware workflow design</li>
           </ul>
         </div>
       </div>
@@ -343,25 +403,22 @@
         <strong>Location:</strong> Kansas City, Mo.
       </p>
     </section>
+
   </div>
 
-  <!-- FOOTER WITH RIGHT-ALIGNED PORTRAIT -->
-  <footer>
-
-    <!-- LEFT SIDE -->
+  <!-- FOOTER -->
+  <footer id="footer">
     <div class="footer-left">
-      <img src="IMG_0992.png" class="logo" alt="WheatScript small logo" />
+      <img src="IMG_0992.png" class="footer-logo" alt="WheatScript Logo" />
       <span>© <script>document.write(new Date().getFullYear())</script> WheatScript Consulting</span>
     </div>
 
-    <!-- RIGHT SIDE PORTRAIT -->
-    <img 
-      src="9097C6C6-29E2-44CE-9D1B-69930751E079.png" 
-      class="footer-portrait" 
-      alt="Billy & Henry"
-    />
+    <div class="footer-right">
+      <img src="Billy-Henry-Footer.png" class="footer-characters" alt="Billy & Henry" />
+    </div>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
     /* Reveal animation */
     const sections = document.querySelectorAll("section");
@@ -370,6 +427,7 @@
         if (entry.isIntersecting) entry.target.classList.add("revealed");
       });
     }, { threshold: 0.1 });
+
     sections.forEach((section) => observer.observe(section));
 
     /* Accordions */
@@ -396,6 +454,19 @@
       if (window.scrollY > 30) heroBar.classList.add("shrink");
       else heroBar.classList.remove("shrink");
     });
+
+    /* Footer fly-in animation */
+    const footer = document.getElementById("footer");
+
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footer.classList.add("footer-animate");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    footerObserver.observe(footer);
   </script>
 
 </body>
