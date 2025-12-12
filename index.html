@@ -19,7 +19,7 @@
   }
 
   /* -------------------------------------------------------- */
-  /* HEADER (with fixed logo behavior)                        */
+  /* HEADER (logo scaling on scroll)                          */
   /* -------------------------------------------------------- */
   .hero-bar {
     background: #0f172a;
@@ -42,9 +42,7 @@
     display: block;
     object-fit: contain;
     object-position: center;
-    margin: 0;
-    padding: 0;
-    transition: height 0.28s ease, max-height 0.28s ease;
+    transition: height 0.28s ease;
   }
 
   .hero-bar.shrink {
@@ -54,11 +52,10 @@
 
   .hero-bar.shrink .hero-logo img {
     height: 70px;
-    max-height: 70px;
   }
 
   /* -------------------------------------------------------- */
-  /* LINKS (glowing underline)                                */
+  /* Glowing underline links                                  */
   /* -------------------------------------------------------- */
   a {
     position: relative;
@@ -170,7 +167,6 @@
     margin-top: 15px;
   }
 
-  /* Larger screens: side-by-side portrait + text */
   @media (min-width: 720px) {
     .about-layout {
       flex-direction: row;
@@ -254,7 +250,7 @@
 <div class="container">
 
   <!-- ------------------------------------------------------ -->
-  <!-- ABOUT BILLY (WITH PORTRAIT)                            -->
+  <!-- ABOUT BILLY                                            -->
   <!-- ------------------------------------------------------ -->
   <section>
     <h2>
@@ -265,22 +261,23 @@
     </h2>
 
     <div class="about-layout">
+
       <div class="about-portrait">
-        <!-- Upload your illustration as billy-portrait.png or change src -->
-        <img src="billy-portrait.png" alt="Illustrated portrait of Billy Holdeman-Bass" />
+        <!-- EXACT portrait filename as requested -->
+        <img src="Billy-Portrait.png.PNG" alt="Illustrated portrait of Billy" />
       </div>
 
       <div class="about-text">
         <p>
           I am an operations and communications consultant who helps teams turn messy, ad-hoc processes
-          into clear systems that actually support the work. My background spans healthcare leadership,
+          into clear systems that actually support people. My background spans healthcare leadership,
           clinical workflows, client-facing service and systems design, which lets me move comfortably
-          between strategy, operations and the day-to-day reality of how people work.
+          between strategy, operations, and the day-to-day reality of how people work.
         </p>
+
         <p>
-          I focus on designing workflows that are humane, efficient and scalable&mdash;whether that means
-          tightening intake, cleaning up communication loops, or building automation that quietly removes
-          friction in the background.
+          I design workflows that are humane, efficient, and scalable—whether that's tightening intake,
+          cleaning communication loops, or building automation that quietly removes friction behind the scenes.
         </p>
 
         <div class="pill-row">
@@ -290,6 +287,7 @@
           <span class="pill">Clinical Ops</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -307,16 +305,14 @@
     <div class="accordion">
       <div class="accordion-header">
         Operations Efficiency
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
       </div>
       <div class="accordion-content">
         <ul>
-          <li>Audit of current workflows and pain points</li>
-          <li>Redesign of processes for clarity and speed</li>
-          <li>Turnaround time and handoff improvements</li>
-          <li>Implementation support and change guidance</li>
+          <li>Workflow audits and systems cleanup</li>
+          <li>Redesign for clarity + speed</li>
+          <li>Handoff + turnaround optimization</li>
+          <li>Implementation support</li>
         </ul>
       </div>
     </div>
@@ -324,33 +320,29 @@
     <div class="accordion">
       <div class="accordion-header">
         Communications Strategy
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
       </div>
       <div class="accordion-content">
         <ul>
-          <li>Internal communication frameworks and scripts</li>
-          <li>Client and patient experience design</li>
-          <li>Interviewing and feedback systems</li>
-          <li>Conflict-reducing structure for tough conversations</li>
+          <li>Internal communication frameworks</li>
+          <li>Client/patient experience design</li>
+          <li>Feedback and interviewing systems</li>
+          <li>Structure for difficult conversations</li>
         </ul>
       </div>
     </div>
 
     <div class="accordion">
       <div class="accordion-header">
-        Systems and Automation
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        Systems & Automation
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
       </div>
       <div class="accordion-content">
         <ul>
-          <li>CRM and EMR workflow automations</li>
-          <li>Process mapping and documentation</li>
-          <li>Lightweight dashboards and tracking</li>
-          <li>Reducing manual, error-prone tasks</li>
+          <li>CRM/EMR workflow automation</li>
+          <li>Process mapping + documentation</li>
+          <li>Lightweight dashboards</li>
+          <li>Reducing manual, error-prone steps</li>
         </ul>
       </div>
     </div>
@@ -358,16 +350,14 @@
     <div class="accordion">
       <div class="accordion-header">
         Clinical Operations
-        <svg class="chevron" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
       </div>
       <div class="accordion-content">
         <ul>
           <li>Patient flow and visit structure redesign</li>
-          <li>Provider communication and escalation paths</li>
-          <li>Scheduling and intake optimization</li>
-          <li>Compliance-aware workflow structuring</li>
+          <li>Provider communication systems</li>
+          <li>Scheduling + intake optimization</li>
+          <li>Compliance-aware workflow design</li>
         </ul>
       </div>
     </div>
@@ -378,13 +368,60 @@
   <!-- ------------------------------------------------------ -->
   <section>
     <h2>
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M4 4h16v16H4z" />
-        <path d="M4 4l8 7 8-7" />
-      </svg>
+      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M4 4l8 7 8-7" /></svg>
       Contact
     </h2>
 
     <p>
       <strong>Email:</strong>
-      <a href="mailto:billy@wheatscript.com">billy@whe
+      <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br />
+      <strong>Phone:</strong> (816) 237-8631<br />
+      <strong>Location:</strong> Kansas City, Mo.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <script>
+    document.write("© " + new Date().getFullYear() + " WheatScript Consulting");
+  </script>
+</footer>
+
+
+<script>
+  /* Reveal-on-scroll */
+  const sections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("revealed")),
+    { threshold: 0.1 }
+  );
+  sections.forEach(s => observer.observe(s));
+
+  /* Accordions */
+  document.querySelectorAll(".accordion").forEach(acc => {
+    const header = acc.querySelector(".accordion-header");
+    const content = acc.querySelector(".accordion-content");
+
+    header.addEventListener("click", () => {
+      const open = acc.classList.contains("open");
+      document.querySelectorAll(".accordion.open").forEach(a => {
+        a.classList.remove("open");
+        a.querySelector(".accordion-content").style.maxHeight = null;
+      });
+      if (!open) {
+        acc.classList.add("open");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+
+  /* Shrinking header */
+  const heroBar = document.getElementById("heroBar");
+  window.addEventListener("scroll", () => {
+    heroBar.classList.toggle("shrink", window.scrollY > 30);
+  });
+</script>
+
+</body>
+</html>
