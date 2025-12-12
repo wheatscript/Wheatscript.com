@@ -1,427 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>WheatScript Consulting</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="icon" type="image/png" href="favicon.png" />
+  <title>WheatScript Consulting | Operations, Communications & Systems</title>
 
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #0f172a;
-    color: #e5e7eb;
-    line-height: 1.6;
-    overflow-x: hidden;
+  <meta name="description" content="WheatScript Consulting helps teams streamline operations, improve communication, and design human-centered systems. Based in Kansas City, Mo., serving organizations nationwide." />
+  <meta name="keywords" content="operations consultant, workflow design, communications strategy, systems optimization, automation consulting, Kansas City consultant" />
+  <meta name="author" content="Billy Holdeman-Bass" />
+
+  <!-- Social Preview -->
+  <meta property="og:title" content="WheatScript Consulting" />
+  <meta property="og:description" content="Operations, communications, and systems consulting designed to remove friction and help teams operate with clarity." />
+  <meta property="og:image" content="Billy-Portrait.png.PNG" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wheatscript.com" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "WheatScript Consulting",
+    "image": "Billy-Portrait.png.PNG",
+    "description": "Operations, communications, and systems consulting focused on clarity, workflow improvement, and human-centered process design.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kansas City",
+      "addressRegion": "MO",
+      "addressCountry": "US"
+    },
+    "url": "https://wheatscript.com",
+    "telephone": "+18162378631"
   }
+  </script>
 
-  /* -------------------------------------------------------- */
-  /* HEADER (logo scaling on scroll)                          */
-  /* -------------------------------------------------------- */
-  .hero-bar {
-    background: #0f172a;
-    height: 140px;
-    padding: 0 40px;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #1e293b;
-    transition: height 0.28s ease, padding 0.28s ease;
-  }
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  .hero-logo img {
-    height: 120px;
-    max-height: 120px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-    object-position: center;
-    transition: height 0.28s ease;
-  }
+    /* HEADER */
+    .hero-bar {
+      background: #0f172a;
+      height: 150px;         /* adjusted for breathing room */
+      padding: 18px 40px;    /* extra vertical space */
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #1e293b;
+      transition: height 0.28s ease, padding 0.28s ease;
+    }
 
-  .hero-bar.shrink {
-    height: 80px;
-    padding: 0 30px;
-  }
+    .hero-logo img {
+      height: 120px;
+      max-height: 120px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      transition: height 0.28s ease, max-height 0.28s ease;
+    }
 
-  .hero-bar.shrink .hero-logo img {
-    height: 70px;
-  }
+    .hero-bar.shrink {
+      height: 80px;
+      padding: 0 30px;
+    }
 
-  /* -------------------------------------------------------- */
-  /* Glowing underline links                                  */
-  /* -------------------------------------------------------- */
-  a {
-    position: relative;
-    color: #38bdf8;
-    text-decoration: none;
-    padding-bottom: 2px;
-  }
+    .hero-bar.shrink .hero-logo img {
+      height: 70px;
+      max-height: 70px;
+    }
 
-  a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0%;
-    height: 2px;
-    background: #38bdf8;
-    box-shadow: 0 0 8px #38bdf8;
-    transition: width 0.3s ease;
-  }
+    /* LINK STYLE */
+    a {
+      position: relative;
+      color: #38bdf8;
+      text-decoration: none;
+      padding-bottom: 2px;
+    }
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background: #38bdf8;
+      box-shadow: 0 0 8px #38bdf8;
+      transition: width 0.3s ease;
+    }
+    a:hover::after {
+      width: 100%;
+    }
 
-  a:hover::after {
-    width: 100%;
-  }
+    /* LAYOUT */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
 
-  /* -------------------------------------------------------- */
-  /* LAYOUT                                                   */
-  /* -------------------------------------------------------- */
-  .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-  }
+    /* Reveal animation */
+    section {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(35px);
+    }
+    section.revealed {
+      animation: reveal 0.9s ease-out forwards;
+    }
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(35px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-  section {
-    margin-bottom: 60px;
-    opacity: 0;
-    transform: translateY(35px);
-  }
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-  section.revealed {
-    animation: reveal 0.9s ease-out forwards;
-  }
+    .icon {
+      height: 20px;
+      width: 20px;
+      stroke: #38bdf8;
+      stroke-width: 2;
+      fill: none;
+    }
 
-  @keyframes reveal {
-    0% { opacity: 0; transform: translateY(35px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
+    /* HERO INTRO BLOCK */
+    .intro {
+      background: #0f172a;
+      padding: 30px 0 10px 0;
+      text-align: center;
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
 
-  h2 {
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 8px;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .icon {
-    height: 20px;
-    width: 20px;
-    stroke: #38bdf8;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-  }
-
-  /* -------------------------------------------------------- */
-  /* ABOUT LAYOUT WITH PORTRAIT                               */
-  /* -------------------------------------------------------- */
-  .about-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .about-portrait {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: center;
-  }
-
-  .about-portrait img {
-    width: 220px;
-    max-width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-  }
-
-  .about-text {
-    flex: 1 1 auto;
-  }
-
-  .pill {
-    display: inline-block;
-    padding: 7px 12px;
-    margin: 4px;
-    border-radius: 999px;
-    background: #1e293b;
-    border: 1px solid #475569;
-    font-size: 13px;
-    letter-spacing: 0.07em;
-  }
-
-  .pill-row {
-    margin-top: 15px;
-  }
-
-  @media (min-width: 720px) {
+    /* ABOUT WITH PORTRAIT */
     .about-layout {
-      flex-direction: row;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .about-portrait img {
+      width: 240px;
+      max-width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 12px;
+      margin: 4px;
+      border-radius: 999px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      font-size: 13px;
+      letter-spacing: 0.07em;
+    }
+
+    @media (min-width: 720px) {
+      .about-layout {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* ACCORDIONS */
+    .accordion {
+      margin: 12px 0;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      background: #1e2538;
+    }
+
+    .accordion-header {
+      padding: 14px;
+      cursor: pointer;
+      font-size: 18px;
+      background: #1e293b;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
     }
 
-    .about-portrait {
-      justify-content: flex-start;
+    .accordion-header:hover {
+      background: #243044;
     }
-  }
 
-  /* -------------------------------------------------------- */
-  /* ACCORDIONS                                               */
-  /* -------------------------------------------------------- */
-  .accordion {
-    margin: 12px 0;
-    border: 1px solid #334155;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #1e2538;
-  }
+    .chevron {
+      stroke: #38bdf8;
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
 
-  .accordion-header {
-    padding: 14px;
-    cursor: pointer;
-    font-size: 18px;
-    background: #1e293b;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 14px;
+      background: #1c2433;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
 
-  .accordion-header:hover {
-    background: #243044;
-  }
+    .accordion.open .accordion-content {
+      padding: 14px;
+    }
 
-  .chevron {
-    stroke: #38bdf8;
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s ease;
-  }
+    .accordion.open .chevron {
+      transform: rotate(180deg);
+    }
 
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    background: #1c2433;
-    padding: 0 14px;
-    transition: max-height 0.35s ease, padding 0.35s ease;
-  }
+    /* FOOTER */
+    footer {
+      background: #0b1220;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-top: 1px solid #1e293b;
+    }
 
-  .accordion.open .accordion-content {
-    padding: 14px;
-  }
+    footer img {
+      height: 28px;
+      width: auto;
+    }
 
-  .accordion.open .chevron {
-    transform: rotate(180deg);
-  }
-
-  footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 60px;
-    font-size: 14px;
-    color: #94a3b8;
-  }
-</style>
+    footer span {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- -------------------------------------------------------- -->
-<!-- HEADER                                                   -->
-<!-- -------------------------------------------------------- -->
-<div class="hero-bar" id="heroBar">
-  <div class="hero-logo">
-    <img src="IMG_0992.png" alt="WheatScript Logo" />
+  <!-- HEADER -->
+  <div class="hero-bar" id="heroBar">
+    <div class="hero-logo">
+      <img src="IMG_0992.png" alt="WheatScript Logo" />
+    </div>
   </div>
-</div>
 
-<div class="container">
+  <!-- HERO INTRO -->
+  <div class="intro">
+    Modern systems meet human-centered operations.<br/>
+    I help teams streamline workflows, improve communication, and build processes that scale with intention.
+  </div>
 
-  <!-- ------------------------------------------------------ -->
-  <!-- ABOUT BILLY                                            -->
-  <!-- ------------------------------------------------------ -->
-  <section>
-    <h2>
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z" />
-      </svg>
-      About Billy
-    </h2>
+  <div class="container">
 
-    <div class="about-layout">
+    <!-- ABOUT -->
+    <section>
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.5-2 4.5-4.5S14.7 3 12 3 7.5 5 7.5 7.5 9.3 12 12 12zm0 3c-4 0-7.5 2-7.5 4.5V22h15v-2.5c0-2.5-3.5-4.5-7.5-4.5z"/></svg>
+        About Billy
+      </h2>
 
-      <div class="about-portrait">
-        <!-- EXACT portrait filename as requested -->
-        <img src="Billy-Portrait.png.PNG" alt="Illustrated portrait of Billy" />
+      <div class="about-layout">
+        <div class="about-portrait">
+          <img src="Billy-Portrait.png.PNG" alt="Billy portrait" />
+        </div>
+
+        <div class="about-text">
+          <p>
+            I am an operations and communications consultant who helps teams turn messy, ad-hoc processes into clear, reliable systems. My background spans healthcare leadership, workflow design, client experience, and systems strategy — giving me a blend of practical and people-centered insight.
+          </p>
+          <p>
+            I design workflows that eliminate friction, improve clarity, and help teams operate with confidence. The goal is simple: less chaos, more alignment, better outcomes.
+          </p>
+
+          <div>
+            <span class="pill">Operations</span>
+            <span class="pill">Communications</span>
+            <span class="pill">Systems</span>
+            <span class="pill">Clinical Ops</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="about-text">
-        <p>
-          I am an operations and communications consultant who helps teams turn messy, ad-hoc processes
-          into clear systems that actually support people. My background spans healthcare leadership,
-          clinical workflows, client-facing service and systems design, which lets me move comfortably
-          between strategy, operations, and the day-to-day reality of how people work.
-        </p>
+    <!-- WHAT I DO -->
+    <section>
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        What I Do
+      </h2>
 
-        <p>
-          I design workflows that are humane, efficient, and scalable—whether that's tightening intake,
-          cleaning communication loops, or building automation that quietly removes friction behind the scenes.
-        </p>
-
-        <div class="pill-row">
-          <span class="pill">Operations</span>
-          <span class="pill">Communications</span>
-          <span class="pill">Systems</span>
-          <span class="pill">Clinical Ops</span>
+      <!-- Accordion panels (unchanged) -->
+      <div class="accordion">
+        <div class="accordion-header">Operations Efficiency
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Workflow audits & systems cleanup</li>
+            <li>Redesign for clarity & speed</li>
+            <li>Handoff & turnaround optimization</li>
+            <li>Implementation guidance</li>
+          </ul>
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ------------------------------------------------------ -->
-  <!-- WHAT I DO                                              -->
-  <!-- ------------------------------------------------------ -->
-  <section>
-    <h2>
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      What I Do
-    </h2>
-
-    <div class="accordion">
-      <div class="accordion-header">
-        Operations Efficiency
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+      <div class="accordion">
+        <div class="accordion-header">Communications Strategy
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Internal communication frameworks</li>
+            <li>Client & patient experience design</li>
+            <li>Interviewing & feedback systems</li>
+            <li>Structure for difficult conversations</li>
+          </ul>
+        </div>
       </div>
-      <div class="accordion-content">
-        <ul>
-          <li>Workflow audits and systems cleanup</li>
-          <li>Redesign for clarity + speed</li>
-          <li>Handoff + turnaround optimization</li>
-          <li>Implementation support</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="accordion">
-      <div class="accordion-header">
-        Communications Strategy
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+      <div class="accordion">
+        <div class="accordion-header">Systems & Automation
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>CRM & EMR automation</li>
+            <li>Process mapping & documentation</li>
+            <li>Lightweight dashboards</li>
+            <li>Error-reducing workflow design</li>
+          </ul>
+        </div>
       </div>
-      <div class="accordion-content">
-        <ul>
-          <li>Internal communication frameworks</li>
-          <li>Client/patient experience design</li>
-          <li>Feedback and interviewing systems</li>
-          <li>Structure for difficult conversations</li>
-        </ul>
+
+      <div class="accordion">
+        <div class="accordion-header">Clinical Operations
+          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Patient flow redesign</li>
+            <li>Provider communication systems</li>
+            <li>Scheduling & intake optimization</li>
+            <li>Compliance-aware workflow design</li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="accordion">
-      <div class="accordion-header">
-        Systems & Automation
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
-      </div>
-      <div class="accordion-content">
-        <ul>
-          <li>CRM/EMR workflow automation</li>
-          <li>Process mapping + documentation</li>
-          <li>Lightweight dashboards</li>
-          <li>Reducing manual, error-prone steps</li>
-        </ul>
-      </div>
-    </div>
+    <!-- CONTACT -->
+    <section>
+      <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 7 8-7"/></svg>
+        Contact
+      </h2>
 
-    <div class="accordion">
-      <div class="accordion-header">
-        Clinical Operations
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
-      </div>
-      <div class="accordion-content">
-        <ul>
-          <li>Patient flow and visit structure redesign</li>
-          <li>Provider communication systems</li>
-          <li>Scheduling + intake optimization</li>
-          <li>Compliance-aware workflow design</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <p>
+        <strong>Email:</strong> <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br />
+        <strong>Phone:</strong> (816) 237-8631<br />
+        <strong>Location:</strong> Kansas City, Mo.
+      </p>
+    </section>
 
-  <!-- ------------------------------------------------------ -->
-  <!-- CONTACT                                                -->
-  <!-- ------------------------------------------------------ -->
-  <section>
-    <h2>
-      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M4 4l8 7 8-7" /></svg>
-      Contact
-    </h2>
+  </div>
 
-    <p>
-      <strong>Email:</strong>
-      <a href="mailto:billy@wheatscript.com">billy@wheatscript.com</a><br />
-      <strong>Phone:</strong> (816) 237-8631<br />
-      <strong>Location:</strong> Kansas City, Mo.
-    </p>
-  </section>
+  <!-- FOOTER -->
+  <footer>
+    <img src="IMG_0992.png" alt="small WheatScript logo" />
+    <span>© <script>document.write(new Date().getFullYear())</script> WheatScript Consulting</span>
+  </footer>
 
-</div>
-
-<footer>
   <script>
-    document.write("© " + new Date().getFullYear() + " WheatScript Consulting");
-  </script>
-</footer>
-
-
-<script>
-  /* Reveal-on-scroll */
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add("revealed")),
-    { threshold: 0.1 }
-  );
-  sections.forEach(s => observer.observe(s));
-
-  /* Accordions */
-  document.querySelectorAll(".accordion").forEach(acc => {
-    const header = acc.querySelector(".accordion-header");
-    const content = acc.querySelector(".accordion-content");
-
-    header.addEventListener("click", () => {
-      const open = acc.classList.contains("open");
-      document.querySelectorAll(".accordion.open").forEach(a => {
-        a.classList.remove("open");
-        a.querySelector(".accordion-content").style.maxHeight = null;
+    /* Reveal animation */
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("revealed");
       });
-      if (!open) {
-        acc.classList.add("open");
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
+    }, { threshold: 0.1 });
+
+    sections.forEach((section) => observer.observe(section));
+
+    /* Accordions */
+    document.querySelectorAll(".accordion").forEach((acc) => {
+      const header = acc.querySelector(".accordion-header");
+      const content = acc.querySelector(".accordion-content");
+
+      header.addEventListener("click", () => {
+        const open = acc.classList.contains("open");
+        document.querySelectorAll(".accordion.open").forEach((a) => {
+          a.classList.remove("open");
+          a.querySelector(".accordion-content").style.maxHeight = null;
+        });
+        if (!open) {
+          acc.classList.add("open");
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
     });
-  });
 
-  /* Shrinking header */
-  const heroBar = document.getElementById("heroBar");
-  window.addEventListener("scroll", () => {
-    heroBar.classList.toggle("shrink", window.scrollY > 30);
-  });
-</script>
-
+    /* Shrinking header */
+    const heroBar = document.getElementById("heroBar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) heroBar.classList.add("shrink");
+      else heroBar.classList.remove("shrink");
+    });
+  </script>
 </body>
 </html>
