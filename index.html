@@ -6,7 +6,6 @@
 
   <title>WheatScript Consulting | Operations, Communications & Systems</title>
 
-  <!-- SEO -->
   <meta name="description" content="WheatScript Consulting helps teams streamline operations, improve communication, and design human-centered systems. Based in Kansas City, Mo., serving organizations nationwide." />
   <meta name="keywords" content="operations consultant, workflow design, communications strategy, systems optimization, automation consulting, Kansas City consultant" />
   <meta name="author" content="Billy Holdeman-Bass" />
@@ -18,127 +17,53 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wheatscript.com" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "WheatScript Consulting",
-    "image": "Billy-Portrait.png.PNG",
-    "description": "Operations, communications, and systems consulting focused on clarity, workflow improvement, and human-centered process design.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kansas City",
-      "addressRegion": "MO",
-      "addressCountry": "US"
-    },
-    "url": "https://wheatscript.com",
-    "telephone": "+18162378631"
-  }
-  </script>
+  <link rel="icon" href="favicon.ico" />
 
   <style>
-    :root {
-      --bg-deep: #0f172a;
-      --bg-surface: #0b1220;
-      --accent: #38bdf8;
-      --border: #1e293b;
-      --text-main: #e5e7eb;
-      --text-soft: #cbd5e1;
-    }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      background: var(--bg-deep);
-      color: var(--text-main);
+      background: #0f172a;
+      color: #e5e7eb;
       line-height: 1.6;
       overflow-x: hidden;
-      position: relative;
-    }
-
-    /* BACKGROUND PATTERN (bold tech) */
-    .bg-pattern {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(56,189,248,0.18), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(56,189,248,0.14), transparent 55%),
-        repeating-linear-gradient(
-          135deg,
-          rgba(148,163,184,0.08) 0,
-          rgba(148,163,184,0.08) 1px,
-          transparent 1px,
-          transparent 10px
-        );
-      opacity: 0.8;
-      animation: drift 40s linear infinite alternate;
-    }
-
-    @keyframes drift {
-      from {
-        background-position: 0 0, 100% 100%, 0 0;
-      }
-      to {
-        background-position: -80px 40px, calc(100% + 80px) calc(100% - 40px), 40px 60px;
-      }
     }
 
     /* HEADER */
     .hero-bar {
-      background: radial-gradient(circle at top, rgba(56,189,248,0.16), transparent 55%),
-                  var(--bg-deep);
-      height: 170px;
-      padding: 25px 40px;
+      background: #0f172a;
+      height: 150px;
+      padding: 18px 40px;
       position: sticky;
       top: 0;
       z-index: 200;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
-      backdrop-filter: blur(10px);
-      transition: height 0.28s ease, padding 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+      border-bottom: 1px solid #1e293b;
+      transition: height 0.28s ease, padding 0.28s ease;
     }
 
     .hero-logo img {
-      height: 135px;
+      height: 120px;
       width: auto;
       object-fit: contain;
-      transition: height 0.28s ease, transform 0.28s ease;
-      animation: logoFloat 14s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat {
-      0%   { transform: translateY(0); }
-      50%  { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
+      transition: height 0.28s ease;
     }
 
     .hero-bar.shrink {
-      height: 90px;
-      padding: 10px 25px;
-      background: rgba(15,23,42,0.96);
-      box-shadow: 0 10px 28px rgba(15,23,42,0.85);
+      height: 80px;
+      padding: 0 30px;
     }
 
     .hero-bar.shrink .hero-logo img {
-      height: 75px;
-      transform: translateY(0);
-      animation: none;
+      height: 70px;
     }
 
     /* LINKS */
     a {
       position: relative;
-      color: var(--accent);
+      color: #38bdf8;
       text-decoration: none;
       padding-bottom: 2px;
     }
@@ -149,8 +74,8 @@
       bottom: -2px;
       width: 0%;
       height: 2px;
-      background: var(--accent);
-      box-shadow: 0 0 10px rgba(56,189,248,0.9);
+      background: #38bdf8;
+      box-shadow: 0 0 8px #38bdf8;
       transition: width 0.3s ease;
     }
     a:hover::after {
@@ -159,20 +84,12 @@
 
     /* LAYOUT */
     .container {
-      max-width: 1100px;
-      margin: 40px auto 60px auto;
-      padding: 0 28px 40px 28px;
-      background: linear-gradient(
-        145deg,
-        rgba(15,23,42,0.96),
-        rgba(15,23,42,0.92)
-      );
-      border-radius: 18px;
-      border: 1px solid rgba(51,65,85,0.8);
-      box-shadow: 0 24px 60px rgba(15,23,42,0.9);
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 40px 22px;
     }
 
-    /* Reveal Animation */
+    /* SECTION REVEAL */
     section {
       margin-bottom: 60px;
       opacity: 0;
@@ -201,7 +118,7 @@
     .icon {
       height: 20px;
       width: 20px;
-      stroke: var(--accent);
+      stroke: #38bdf8;
       stroke-width: 2;
       fill: none;
     }
@@ -210,39 +127,32 @@
     .intro {
       text-align: center;
       font-size: 20px;
-      max-width: 750px;
-      margin: 30px auto 50px auto;
-      color: var(--text-soft);
+      max-width: 700px;
+      margin: 0 auto 40px auto;
       line-height: 1.4;
-      padding: 16px 20px;
-      border-radius: 14px;
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 60%),
-                  rgba(15,23,42,0.9);
-      border: 1px solid rgba(56,189,248,0.35);
-      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+      color: #cbd5e1;
     }
 
-    /* ABOUT SECTION */
+    /* ABOUT */
     .about-layout {
       display: flex;
       flex-direction: column;
-      gap: 28px;
       align-items: center;
+      gap: 24px;
       text-align: center;
     }
 
     .about-portrait img {
       width: 260px;
-      max-width: 100%;
       border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(15,23,42,0.95);
-      transform: translateY(0);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
     }
 
-    .about-portrait img:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 26px 60px rgba(15,23,42,1);
+    @media (min-width: 720px) {
+      .about-layout {
+        flex-direction: row;
+        text-align: left;
+      }
     }
 
     .pill {
@@ -254,74 +164,43 @@
       border: 1px solid #475569;
       font-size: 13px;
       letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .pill:hover {
-      transform: translateY(-1px) scale(1.03);
-      border-color: var(--accent);
-      background: #0b1724;
-      box-shadow: 0 0 18px rgba(56,189,248,0.45);
-    }
-
-    @media (min-width: 720px) {
-      .about-layout {
-        flex-direction: row;
-        text-align: left;
-        justify-content: center;
-      }
     }
 
     /* ACCORDIONS */
     .accordion {
       margin: 12px 0;
       border: 1px solid #334155;
-      border-radius: 10px;
+      border-radius: 6px;
       background: #1e2538;
-      box-shadow: 0 10px 30px rgba(15,23,42,0.5);
-      overflow: hidden;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-    }
-
-    .accordion:hover {
-      border-color: rgba(56,189,248,0.6);
-      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
-      transform: translateY(-2px);
     }
 
     .accordion-header {
-      padding: 14px 16px;
+      padding: 14px;
       cursor: pointer;
       font-size: 18px;
-      background: #111827;
+      background: #1e293b;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .accordion-header:hover {
-      background: #111827;
-    }
-
-    .chevron {
-      stroke: var(--accent);
-      width: 18px;
-      height: 18px;
-      transition: transform 0.3s ease;
-    }
-
     .accordion-content {
       max-height: 0;
       overflow: hidden;
-      padding: 0 16px;
-      background: #0f172a;
+      padding: 0 14px;
+      background: #1c2433;
       transition: max-height 0.35s ease, padding 0.35s ease;
     }
 
     .accordion.open .accordion-content {
-      padding: 14px 16px 14px 16px;
+      padding: 14px;
+    }
+
+    .chevron {
+      stroke: #38bdf8;
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
     }
 
     .accordion.open .chevron {
@@ -330,32 +209,34 @@
 
     /* FOOTER */
     footer {
-      background: #020617;
-      padding: 28px;
+      background: #0b1220;
+      padding: 30px 40px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      border-top: 1px solid var(--border);
-      box-shadow: 0 -10px 30px rgba(15,23,42,0.9);
-      margin-top: 40px;
+      border-top: 1px solid #1e293b;
     }
 
-    footer img {
-      height: 30px;
+    footer-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer img.logo {
+      height: 32px;
       width: auto;
     }
 
-    footer span {
-      color: #94a3b8;
-      font-size: 14px;
+    footer .footer-portrait {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
     }
+
   </style>
 </head>
 
 <body>
-
-  <!-- BACKGROUND PATTERN -->
-  <div class="bg-pattern"></div>
 
   <!-- HEADER -->
   <div class="hero-bar" id="heroBar">
@@ -386,11 +267,10 @@
 
         <div class="about-text">
           <p>
-            WheatScript helps teams transform messy, ad-hoc processes into clear, reliable systems. Billy’s background spans healthcare leadership, workflow design, client experience, and systems strategy — blending people-first insight with clean operational structure.
+            WheatScript helps teams turn messy, ad-hoc processes into clear, reliable systems. With a blend of operations strategy, workflow design, and communication structure, Billy brings clarity to the chaos.
           </p>
-
           <p>
-            The goal: less chaos, more clarity, and workflows that feel intuitive instead of exhausting.
+            The work centers on alignment, efficiency, and taking friction out of everyday operations.
           </p>
 
           <div>
@@ -410,62 +290,41 @@
         What I Do
       </h2>
 
-      <!-- ACCORDION 1 -->
       <div class="accordion">
         <div class="accordion-header">Operations Efficiency
           <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="accordion-content">
           <ul>
-            <li>Workflow audits</li>
-            <li>Reducing friction & bottlenecks</li>
-            <li>Clear handoff structures</li>
-            <li>Implementation support</li>
+            <li>Workflow audits & systems cleanup</li>
+            <li>Clarity-based redesign</li>
+            <li>Turnaround & handoff optimization</li>
           </ul>
         </div>
       </div>
 
-      <!-- ACCORDION 2 -->
       <div class="accordion">
         <div class="accordion-header">Communications Strategy
           <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="accordion-content">
           <ul>
-            <li>Internal frameworks</li>
-            <li>Client & patient experience mapping</li>
-            <li>Interviewing processes</li>
-            <li>Feedback & messaging systems</li>
+            <li>Internal communication systems</li>
+            <li>Client & patient experience flow</li>
+            <li>Structured feedback loops</li>
           </ul>
         </div>
       </div>
 
-      <!-- ACCORDION 3 -->
       <div class="accordion">
         <div class="accordion-header">Systems & Automation
           <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="accordion-content">
           <ul>
-            <li>CRM & EMR automation</li>
+            <li>CRM / EMR automation</li>
             <li>Process mapping</li>
-            <li>Light dashboards</li>
-            <li>Error-proof workflow design</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- ACCORDION 4 -->
-      <div class="accordion">
-        <div class="accordion-header">Clinical Operations
-          <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Patient flow structure</li>
-            <li>Provider communication systems</li>
-            <li>Scheduling & intake optimization</li>
-            <li>Compliance-aware workflows</li>
+            <li>Error-reducing workflow design</li>
           </ul>
         </div>
       </div>
@@ -484,24 +343,33 @@
         <strong>Location:</strong> Kansas City, Mo.
       </p>
     </section>
-
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER WITH RIGHT-ALIGNED PORTRAIT -->
   <footer>
-    <img src="IMG_0992.png" alt="Small WheatScript logo" />
-    <span>© <script>document.write(new Date().getFullYear())</script> WheatScript Consulting</span>
+
+    <!-- LEFT SIDE -->
+    <div class="footer-left">
+      <img src="IMG_0992.png" class="logo" alt="WheatScript small logo" />
+      <span>© <script>document.write(new Date().getFullYear())</script> WheatScript Consulting</span>
+    </div>
+
+    <!-- RIGHT SIDE PORTRAIT -->
+    <img 
+      src="9097C6C6-29E2-44CE-9D1B-69930751E079.png" 
+      class="footer-portrait" 
+      alt="Billy & Henry"
+    />
   </footer>
 
   <script>
-    /* Section Reveal Animation */
+    /* Reveal animation */
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add("revealed");
       });
     }, { threshold: 0.1 });
-
     sections.forEach((section) => observer.observe(section));
 
     /* Accordions */
@@ -522,7 +390,7 @@
       });
     });
 
-    /* Shrinking Header */
+    /* Shrinking header */
     const heroBar = document.getElementById("heroBar");
     window.addEventListener("scroll", () => {
       if (window.scrollY > 30) heroBar.classList.add("shrink");
