@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Client Results | WheatScript Consulting</title>
+  <meta charset="UTF‑8" />
+  <meta name="viewport" content="width=device‑width, initial‑scale=1" />
 
+  <title>Client Results | WheatScript Consulting</title>
+  <meta name="description" content="Explore client results — how WheatScript Consulting streamlined operations, improved communications, and redesigned systems for teams." />
+
+  <link rel="icon" type="image/x‑icon" href="favicon.ico" />
+
+  <!-- ===================== STYLES ===================== -->
   <style>
-    /* ROOT + BASE -------------------------------------------------- */
     :root {
       --border: #1e293b;
       --bg: #0f172a;
@@ -16,207 +20,252 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple‑system, BlinkMacSystemFont, "Segoe UI", Roboto, sans‑serif;
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      overflow-x: hidden;
       line-height: 1.6;
+      overflow‑x: hidden;
     }
 
-    a { color: var(--highlight); text-decoration: none; }
+    a {
+      position: relative;
+      color: var(--highlight);
+      text-decoration: none;
+      padding‑bottom: 2px;
+    }
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background: var(--highlight);
+      box-shadow: 0 0 8px var(--highlight);
+      transition: width 0.3s ease;
+    }
+    a:hover::after {
+      width: 100%;
+    }
 
-    /* HEADER -------------------------------------------------------- */
+    /* HEADER */
     .hero-bar {
-      background: #0f172a;
+      background: var(--bg);
       height: 150px;
       padding: 18px 40px;
       position: sticky;
       top: 0;
-      z-index: 200;
+      z‑index: 200;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      border-bottom: 1px solid #1e293b;
+      justify‑content: center;
+      align‑items: center;
+      border‑bottom: 1px solid var(--border);
       transition: height 0.28s ease, padding 0.28s ease;
     }
-
-    .hero-logo img {
+    .hero‑logo img {
       height: 120px;
       width: auto;
-      object-fit: contain;
-      transition: height 0.28s ease;
+      object‑fit: contain;
+      transition: height 0.28s ease, max‑height 0.28s ease;
+    }
+    .hero-bar.shrink {
+      height: 80px;
+      padding: 0 30px;
+    }
+    .hero-bar.shrink .hero‑logo img {
+      height: 70px;
+      max‑height: 70px;
     }
 
-    .hero-bar.shrink { height: 80px; padding: 0 30px; }
-    .hero-bar.shrink .hero-logo img { height: 70px; }
-
-    /* LAYOUT -------------------------------------------------------- */
+    /* CONTAINER */
     .container {
-      max-width: 1000px;
+      max‑width: 1000px;
       margin: 50px auto;
       padding: 20px;
     }
 
-    .intro {
-      text-align: center;
-      font-size: 20px;
-      color: #cbd5e1;
-      max-width: 700px;
-      margin: 0 auto 40px auto;
+    section {
+      margin‑bottom: 60px;
+      opacity: 0;
+      transform: translateY(35px);
+    }
+    section.revealed {
+      animation: reveal 0.9s ease‑out forwards;
+    }
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(35px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 1px solid #334155;
-      padding-bottom: 8px;
-      margin-bottom: 28px;
+      font‑size: 24px;
+      text‑transform: uppercase;
+      letter‑spacing: 0.05em;
+      border‑bottom: 1px solid #334155;
+      padding‑bottom: 8px;
+      margin‑bottom: 18px;
       display: flex;
-      align-items: center;
+      align‑items: center;
       gap: 10px;
     }
-
     .icon {
       height: 20px;
       width: 20px;
       stroke: var(--highlight);
-      stroke-width: 2;
+      stroke‑width: 2;
       fill: none;
     }
 
-    /* FILTER BAR ---------------------------------------------------- */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
+    .intro {
+      text‑align: center;
+      font‑size: 20px;
+      max‑width: 700px;
+      margin: 0 auto 40px auto;
+      color: #cbd5e1;
+      line‑height: 1.4;
+      padding‑top: 20px;
     }
 
+    /* FILTER BAR */
+    .filter-bar {
+      display: flex;
+      flex‑wrap: wrap;
+      gap: 10px;
+      margin: 30px 0;
+    }
     .filter-btn {
       background: #1e293b;
       border: 1px solid #475569;
       color: #cbd5e1;
       padding: 8px 14px;
-      border-radius: 999px;
+      border‑radius: 999px;
+      font‑size: 13px;
       cursor: pointer;
-      font-size: 13px;
       transition: all 0.3s ease;
     }
-
     .filter-btn:hover {
       background: #334155;
     }
-
     .filter-btn.active {
       background: var(--highlight);
       color: #0f172a;
-      font-weight: bold;
-      box-shadow: 0 0 8px var(--highlight);
+      font‑weight: bold;
+      box‑shadow: 0 0 8px var(--highlight);
     }
 
-    /* GALLERY GRID -------------------------------------------------- */
+    /* GALLERY GRID */
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid‑template‑columns: 1fr;
       gap: 40px;
     }
-
-    @media (min-width: 720px) {
+    @media (min‑width: 720px) {
       .gallery-grid {
-        grid-template-columns: 1fr 1fr;
+        grid‑template‑columns: 1fr 1fr;
       }
     }
 
-    /* CASE CARDS ---------------------------------------------------- */
     .case-card {
       background: #1e293b;
       border: 1px solid #334155;
-      border-radius: 12px;
+      border‑radius: 12px;
       padding: 24px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.4);
-      transition: 
+      box‑shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      opacity: 1;
+      transform: translateY(0);
+      transition:
         opacity 0.35s ease,
         transform 0.35s ease;
     }
-
-    .case-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #f1f5f9;
-    }
-
-    .case-tagline {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .case-text {
-      font-size: 15px;
-      color: #cbd5e1;
-    }
-
-    .case-tags { margin-top: 16px; }
-
-    .pill {
-      display: inline-block;
-      padding: 7px 12px;
-      margin: 4px 6px 0 0;
-      border-radius: 999px;
-      background: #0f172a;
-      border: 1px solid #475569;
-      font-size: 12px;
-      letter-spacing: 0.05em;
-    }
-
-    /* ANIMATION STATES ---------------------------------------------- */
     .case-card.hide {
       opacity: 0;
       transform: translateY(20px);
-      pointer-events: none;
+      pointer‑events: none;
+    }
+    .case-title {
+      font‑size: 20px;
+      font‑weight: 600;
+      margin‑bottom: 8px;
+      color: #f1f5f9;
+    }
+    .case-tagline {
+      font‑size: 14px;
+      color: var(--muted);
+      margin‑bottom: 12px;
+    }
+    .case-text {
+      font‑size: 15px;
+      color: #cbd5e1;
+    }
+    .case-tags {
+      margin‑top: 16px;
     }
 
-    .case-card.show {
+    .pill {
+      display: inline‑block;
+      padding: 7px 12px;
+      margin: 4px;
+      border‑radius: 999px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      font‑size: 13px;
+      letter‑spacing: 0.07em;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b1220;
+      padding: 30px;
+      display: flex;
+      justify‑content: space‑between;
+      align‑items: center;
+      border‑top: 1px solid #1e293b;
+    }
+    .footer‑left, .footer‑right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 0.9s ease‑out;
+    }
+    footer img.footer‑logo { height: 30px; width: auto; }
+    footer img.footer‑characters { height: 80px; width: auto; }
+    .footer‑animate .footer‑left,
+    .footer‑animate .footer‑right {
       opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+      transform: translateX(0);
     }
-
-    /* CTA ----------------------------------------------------------- */
-    .cta {
-      text-align: center;
-      margin-top: 60px;
-      font-size: 18px;
+    .footer‑left span {
+      color: #94a3b8;
+      font‑size: 14px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -------------------------------------------------------- -->
+  <!-- HEADER -->
   <div class="hero-bar" id="heroBar">
-    <div class="hero-logo">
+    <div class="hero‑logo">
       <img src="IMG_0992.png" alt="WheatScript Logo" />
     </div>
   </div>
 
+  <!-- INTRO -->
+  <div class="intro">
+    Results that speak for themselves.<br/>
+    See how teams have streamlined ops, clarified communication, and built systems that work.
+  </div>
+
   <div class="container">
 
-    <div class="intro">
-      Results that speak for themselves.<br />
-      See how teams across industries have streamlined, scaled, and succeeded with WheatScript.
-    </div>
-
+    <!-- CLIENT RESULTS -->
     <section>
       <h2>
         <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         Client Results
       </h2>
 
-      <!-- FILTER BAR ------------------------------------------------ -->
+      <!-- FILTER BUTTONS -->
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="Clinical Ops">Clinical Ops</button>
@@ -226,23 +275,19 @@
         <button class="filter-btn" data-filter="Automation">Automation</button>
         <button class="filter-btn" data-filter="Scaling">Scaling</button>
         <button class="filter-btn" data-filter="Comms Strategy">Comms Strategy</button>
-        <button class="filter-btn" data-filter="Team Alignment">Team Alignment</button>
-        <button class="filter-btn" data-filter="Documentation">Documentation</button>
       </div>
 
-      <!-- GALLERY GRID ---------------------------------------------- -->
+      <!-- GALLERY GRID -->
       <div class="gallery-grid">
 
         <!-- CASE 1 -->
-        <div class="case-card show"
-             data-tags="Clinical Ops,Workflow Design,Turnaround">
+        <div class="case-card show" data-tags="Clinical Ops,Workflow Design,Turnaround">
           <div class="case-title">Clinic Workflow Overhaul</div>
-          <div class="case-tagline">Improving patient flow, staff clarity & turnaround times</div>
+          <div class="case-tagline">Improving patient flow, staff clarity & turnaround</div>
           <div class="case-text">
-            A multi-site health clinic struggled with inconsistent handoffs and slow intake.
-            WheatScript mapped the entire patient journey, redesigned communication structures,
-            and introduced clarity-focused scheduling systems.<br><br>
-            <strong>Result:</strong> 22% faster intake and 40% fewer internal back-and-forths.
+            A multi‑site clinic struggled with handoffs and slow intake. WheatScript mapped the full patient journey,
+            redesigned communication flows, and implemented scheduling clarity.<br/><br/>
+            <strong>Result:</strong> 22% faster intake and 40% fewer internal delays.
           </div>
           <div class="case-tags">
             <span class="pill">Clinical Ops</span>
@@ -252,16 +297,13 @@
         </div>
 
         <!-- CASE 2 -->
-        <div class="case-card show"
-             data-tags="Operations,Automation,Scaling">
+        <div class="case-card show" data-tags="Operations,Automation,Scaling">
           <div class="case-title">Scaling a Startup Team</div>
-          <div class="case-tagline">From ad‑hoc workflows to intentional, scalable operations</div>
+          <div class="case-tagline">From ad‑hoc to intentional operations as the company doubled</div>
           <div class="case-text">
-            A fast-growing SaaS startup needed reliable systems to support rapid hiring.
-            WheatScript built onboarding frameworks, role clarity documentation, and automated
-            operational touchpoints.<br><br>
-            <strong>Result:</strong> Leadership reclaimed 8–10 hours weekly while improving
-            team consistency.
+            A growing SaaS needed structure. WheatScript built onboarding frameworks, role clarity documents, and automated
+            operational touchpoints.<br/><br/>
+            <strong>Result:</strong> Leadership reclaimed 8–10 hours/week while improving consistency.
           </div>
           <div class="case-tags">
             <span class="pill">Operations</span>
@@ -271,14 +313,12 @@
         </div>
 
         <!-- CASE 3 -->
-        <div class="case-card show"
-             data-tags="Comms Strategy,Team Alignment,Documentation">
+        <div class="case-card show" data-tags="Comms Strategy,Team Alignment,Documentation">
           <div class="case-title">Communication That Works</div>
           <div class="case-tagline">Replacing Slack chaos with structured clarity</div>
           <div class="case-text">
-            A national nonprofit struggled with message overload and unclear comms expectations.
-            WheatScript introduced communication norms, async updates, and lightweight decision logs.<br><br>
-            <strong>Result:</strong> Team stress dropped significantly and decision speed doubled.
+            A nonprofit overloaded by messages gained comms norms, async updates, and decision logs.<br/><br/>
+            <strong>Result:</strong> Team stress dropped and decision speed doubled.
           </div>
           <div class="case-tags">
             <span class="pill">Comms Strategy</span>
@@ -288,32 +328,45 @@
         </div>
 
       </div>
-
-      <!-- CTA -------------------------------------------------------- -->
-      <div class="cta">
-        Want to see what this could look like for your team?<br>
-        <a href="mailto:billy@wheatscript.com">Let's talk.</a>
-      </div>
-
     </section>
+
   </div>
 
-  <!-- JAVASCRIPT ---------------------------------------------------- -->
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer‑left">
+      <img src="IMG_0992.png" alt="WheatScript logo" class="footer‑logo" />
+      <span>© <script>document.write(new Date().getFullYear())</script> WheatScript Consulting</span>
+    </div>
+    <div class="footer‑right">
+      <img src="9097C6C6‑29E2‑44CE‑9D1B‑69930751E079.png" alt="Billy & Henry illustration" class="footer‑characters" />
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
   <script>
-    /* Shrinking Header */
+    // SHRINK HEADER
     const heroBar = document.getElementById("heroBar");
     window.addEventListener("scroll", () => {
       heroBar.classList.toggle("shrink", window.scrollY > 30);
     });
 
-    /* Filtering Logic + Animations */
+    // REVEAL ON SCROLL
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("revealed");
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(section => observer.observe(section));
+
+    // FILTERING
     const filterButtons = document.querySelectorAll(".filter-btn");
     const cards = document.querySelectorAll(".case-card");
 
     filterButtons.forEach(btn => {
       btn.addEventListener("click", () => {
         const filter = btn.dataset.filter;
-
         filterButtons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
@@ -323,14 +376,23 @@
 
           if (match) {
             card.classList.remove("hide");
-            card.classList.add("show");
           } else {
             card.classList.add("hide");
-            card.classList.remove("show");
           }
         });
       });
     });
+
+    // FOOTER ANIMATION
+    const footer = document.getElementById("footer");
+    const footerObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footer.classList.add("footer‑animate");
+        }
+      });
+    }, { threshold: 0.2 });
+    footerObserver.observe(footer);
   </script>
 
 </body>
